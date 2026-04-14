@@ -121,35 +121,37 @@ get_header(); ?>
   </section>
 
   <!-- TRUST STRIP -->
-  <section class="relative z-20 -mt-8 lg:-mt-10">
+  <section class="relative z-20 -mt-8 overflow-hidden lg:-mt-10">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="grid gap-0 overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-trust)] md:grid-cols-2 xl:grid-cols-4">
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 border-b border-[var(--bs-border)] px-5 py-5 md:border-r xl:border-b-0">
-          <span class="bs-chip-icon bg-[var(--bs-accent)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Experience</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">15+ Years of Experience</p>
-          </div>
-        </div>
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 border-b border-[var(--bs-border)] px-5 py-5 xl:border-b-0 xl:border-r">
-          <span class="bs-chip-icon bg-[var(--bs-primary)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Local</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">San Diego Team</p>
-          </div>
-        </div>
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 border-b border-[var(--bs-border)] px-5 py-5 md:border-r md:border-b-0">
-          <span class="bs-chip-icon bg-[var(--bs-gold)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Protection</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">Licensed &amp; Insured</p>
-          </div>
-        </div>
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 px-5 py-5">
-          <span class="bs-chip-icon bg-[var(--bs-accent)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Prepared</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">Commercial-Grade Equipment</p>
+      <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-trust)]">
+        <div class="bs-trust-marquee">
+          <div class="bs-trust-track">
+
+            <?php
+              $trust_items = [
+                ['label' => 'Experience', 'value' => '15+ Years of Experience', 'color' => 'var(--bs-accent)'],
+                ['label' => 'Local', 'value' => 'San Diego Team', 'color' => 'var(--bs-primary)'],
+                ['label' => 'Protection', 'value' => 'Licensed & Insured', 'color' => 'var(--bs-gold)'],
+                ['label' => 'Prepared', 'value' => 'Commercial-Grade Equipment', 'color' => 'var(--bs-accent)'],
+              ];
+
+              $marquee_items = array_merge($trust_items, $trust_items, $trust_items);
+            ?>
+
+            <?php foreach ($marquee_items as $item) : ?>
+              <div class="bs-trust-marquee-item">
+                <span class="bs-chip-icon" style="background:<?php echo esc_attr($item['color']); ?>"></span>
+                <div>
+                  <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">
+                    <?php echo esc_html($item['label']); ?>
+                  </p>
+                  <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">
+                    <?php echo esc_html($item['value']); ?>
+                  </p>
+                </div>
+              </div>
+            <?php endforeach; ?>
+
           </div>
         </div>
       </div>
@@ -293,48 +295,41 @@ get_header(); ?>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+   <!-- FINAL CTA -->
   <section class="relative overflow-hidden border-t border-[var(--bs-border)] bg-[linear-gradient(180deg,#f7fbfd_0%,#eef6fb_100%)] py-20 lg:py-24">
     <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-tl)"></div>
     <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-br)"></div>
-    <div class="absolute left-[-70px] top-10 h-36 w-36 rotate-12 border border-[var(--bs-border)]/80"></div>
-    <div class="absolute right-[-40px] bottom-8 h-28 w-28 rotate-12 border border-[var(--bs-gold)]/20"></div>
 
-    <div class="relative mx-auto max-w-6xl px-4">
+    <div class="relative mx-auto max-w-7xl px-4">
       <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-        <div class="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+        <div class="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+
+          <!-- TEXTO -->
           <div class="bs-reveal-left">
-            <h2 class="max-w-[15ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
-              Ready to experience the Brilliant Star difference?
+            <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">
+              Ready When You Are
+            </p>
+
+            <h2 class="mt-4 max-w-[14ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
+              Ready to Experience the Brilliant Star Difference?
             </h2>
 
             <p class="mt-5 max-w-2xl text-base leading-8 text-[var(--bs-text-soft)]">
-              Request your free quote today.
+              Tell us about your home and we’ll provide a clear, personalized cleaning quote — no pressure, no surprises.
             </p>
           </div>
 
+          <!-- CTA FORM -->
           <div class="bs-reveal-right">
-            <div class="border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)] p-6 shadow-[var(--bs-shadow-service)] md:p-7">
-              <p class="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">
-                Get Started
-              </p>
-
-              <div class="mt-5 flex flex-col gap-4">
-                <a href="/contact-us/" class="bs-btn bs-btn-primary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-                  Request Your Free Quote
-                </a>
-
-                <a href="tel:+18582551498" class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-                  Call (858) 255-1498
-                </a>
-              </div>
+            <div class="bs-final-cta-shell">
+              <div id="bs-cta-home-root-bottom"></div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
-
 </main>
 
 <style>
@@ -487,6 +482,37 @@ get_header(); ?>
     box-shadow: var(--bs-shadow-btn-primary-hover);
   }
 
+
+  /* TRUST MARQUEE */
+.bs-trust-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.bs-trust-track {
+  display: flex;
+  width: max-content;
+  animation: bsTrustMarquee 26s linear infinite;
+}
+
+.bs-trust-marquee:hover .bs-trust-track {
+  animation-play-state: paused;
+}
+
+.bs-trust-marquee-item {
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+  border-right: 1px solid var(--bs-border);
+  background: #fff;
+}
+
+@keyframes bsTrustMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
   .bs-btn-secondary {
     background: var(--bs-primary);
     border-color: var(--bs-primary);
@@ -651,7 +677,24 @@ get_header(); ?>
     }, { passive: true });
 
     handleParallax();
+
+const heroRoot = document.getElementById("bs-cta-home-root");
+const bottomRoot = document.getElementById("bs-cta-home-root-bottom");
+
+if (heroRoot && bottomRoot) {
+  const syncBottomCta = () => {
+    if (!heroRoot.innerHTML.trim()) return;
+    bottomRoot.innerHTML = heroRoot.innerHTML;
+  };
+
+  setTimeout(syncBottomCta, 500);
+}
+
   });
 </script>
+
+
+
+
 
 <?php get_footer(); ?>

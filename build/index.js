@@ -630,41 +630,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * ctahome.js - Componente React para el formulario de cotización
- * 
- * Maneja:
- * - Formulario con todos los campos
- * - Move-out notice dinámico
- * - Validación de campos requeridos
- * - Envío del formulario
+ *
+ * Mejorado para:
+ * - verse más compacto en hero y final CTA
+ * - mantener todos los campos exigidos por el brief
+ * - mostrar Move-Out notice de forma más clara
+ * - colapsar campos opcionales para reducir altura visual
  */
 
 
 
+const INITIAL_FORM = {
+  full_name: '',
+  phone: '',
+  email: '',
+  service: '',
+  bedrooms: '',
+  bathrooms: '',
+  last_cleaning: '',
+  allergies: '',
+  notes: '',
+  contact_method: '',
+  agree_terms: false
+};
+const SERVICE_OPTIONS = [{
+  value: '',
+  label: 'Select a service'
+}, {
+  value: 'regular',
+  label: 'Regular Cleaning'
+}, {
+  value: 'deep',
+  label: 'Deep Cleaning'
+}, {
+  value: 'move-out',
+  label: 'Move-Out Cleaning'
+}, {
+  value: 'move-in',
+  label: 'Move-In Cleaning'
+}, {
+  value: 'post-construction',
+  label: 'Post-Construction Clean-Up'
+}, {
+  value: 'specialty',
+  label: 'Specialty / Other'
+}];
+const CONTACT_METHOD_OPTIONS = [{
+  value: '',
+  label: 'Choose one'
+}, {
+  value: 'phone',
+  label: 'Phone'
+}, {
+  value: 'email',
+  label: 'Email'
+}];
 const CtaHome = () => {
-  // Estado del formulario
-  const [formData, setFormData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    full_name: '',
-    phone: '',
-    email: '',
-    service: '',
-    bedrooms: '',
-    bathrooms: '',
-    last_cleaning: '',
-    allergies: '',
-    notes: '',
-    contact_method: '',
-    agree_terms: false
-  });
-  const [showMoveOutNotice, setShowMoveOutNotice] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [formData, setFormData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(INITIAL_FORM);
   const [isSubmitting, setIsSubmitting] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [submitMessage, setSubmitMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-
-  // Detectar cuando seleccionan Move-Out
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    setShowMoveOutNotice(formData.service === 'move-out');
-  }, [formData.service]);
-
-  // Manejar cambios en inputs
+  const [showOptionalFields, setShowOptionalFields] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const showMoveOutNotice = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => formData.service === 'move-out', [formData.service]);
   const handleChange = e => {
     const {
       name,
@@ -677,12 +703,10 @@ const CtaHome = () => {
       [name]: type === 'checkbox' ? checked : value
     }));
   };
-
-  // Validar formulario
   const validateForm = () => {
     const required = ['full_name', 'phone', 'email', 'service', 'bedrooms', 'bathrooms'];
-    for (let field of required) {
-      if (!formData[field]) {
+    for (const field of required) {
+      if (!String(formData[field] || '').trim()) {
         alert(`Please fill in ${field.replace('_', ' ')}`);
         return false;
       }
@@ -691,7 +715,6 @@ const CtaHome = () => {
       alert('Please agree to the Privacy Policy and Terms & Conditions');
       return false;
     }
-    // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       alert('Please enter a valid email address');
@@ -699,8 +722,6 @@ const CtaHome = () => {
     }
     return true;
   };
-
-  // Enviar formulario
   const handleSubmit = async e => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -716,20 +737,9 @@ const CtaHome = () => {
       });
       const result = await response.json();
       if (response.ok) {
-        setSubmitMessage('Thank you! We\'ll contact you shortly.');
-        setFormData({
-          full_name: '',
-          phone: '',
-          email: '',
-          service: '',
-          bedrooms: '',
-          bathrooms: '',
-          last_cleaning: '',
-          allergies: '',
-          notes: '',
-          contact_method: '',
-          agree_terms: false
-        });
+        setSubmitMessage("Thank you! We'll contact you shortly.");
+        setFormData(INITIAL_FORM);
+        setShowOptionalFields(false);
       } else {
         setSubmitMessage('Error: ' + (result.message || 'Please try again'));
       }
@@ -742,27 +752,27 @@ const CtaHome = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "bs-form-shell overflow-hidden border border-white/10 bg-white text-[var(--bs-text)] shadow-[var(--bs-shadow-hero-form)]",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "relative border-b border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f3f7fa_100%)] px-6 py-6 md:px-7",
+      className: "relative border-b border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f3f7fa_100%)] px-5 py-5 md:px-6",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "absolute inset-y-0 left-0 w-1 bg-[var(--bs-accent)]"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "text-xs font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]",
+        className: "text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]",
         children: "Request a Quote"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-        className: "mt-2 text-2xl font-semibold leading-tight tracking-[-0.03em] text-[var(--bs-primary)]",
+        className: "mt-2 text-[1.45rem] font-semibold leading-tight tracking-[-0.03em] text-[var(--bs-primary)] md:text-2xl",
         children: "Get a Free, Personalized Cleaning Quote"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "mt-3 text-sm leading-7 text-[var(--bs-text-soft)]",
+        className: "mt-2 text-sm leading-6 text-[var(--bs-text-soft)]",
         children: "Tell us about your home and we'll follow up with a clear, honest estimate."
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
       onSubmit: handleSubmit,
-      className: "grid gap-4 px-6 py-6 md:px-7",
+      className: "grid gap-4 px-5 py-5 md:px-6 md:py-6",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "grid gap-4 md:grid-cols-2",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-            className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+            className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
             children: "Full Name *"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
@@ -775,7 +785,7 @@ const CtaHome = () => {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-            className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+            className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
             children: "Phone Number *"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "tel",
@@ -788,60 +798,39 @@ const CtaHome = () => {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "grid gap-4 md:grid-cols-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+          className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+          children: "Email Address *"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          type: "email",
+          name: "email",
+          value: formData.email,
+          onChange: handleChange,
+          required: true,
+          className: "bs-input w-full",
+          placeholder: "you@example.com"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "grid gap-4 md:grid-cols-[1.2fr_0.8fr_0.8fr]",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-            className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-            children: "Email Address *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "email",
-            name: "email",
-            value: formData.email,
-            onChange: handleChange,
-            required: true,
-            className: "bs-input w-full",
-            placeholder: "you@example.com"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-            className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+            className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
             children: "Service Requested *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
             name: "service",
             value: formData.service,
             onChange: handleChange,
             required: true,
             className: "bs-input w-full",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "",
-              children: "Select a service"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "regular",
-              children: "Regular Cleaning"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "deep",
-              children: "Deep Cleaning"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "move-out",
-              children: "Move-Out Cleaning"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "move-in",
-              children: "Move-In Cleaning"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "post-construction",
-              children: "Post-Construction Clean-Up"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: "specialty",
-              children: "Specialty / Other"
-            })]
+            children: SERVICE_OPTIONS.map(option => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+              value: option.value,
+              children: option.label
+            }, option.value || 'empty'))
           })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "grid gap-4 md:grid-cols-2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-            className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-            children: "Number of Bedrooms *"
+            className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+            children: "Bedrooms *"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
             name: "bedrooms",
@@ -849,12 +838,12 @@ const CtaHome = () => {
             onChange: handleChange,
             required: true,
             className: "bs-input w-full",
-            placeholder: "e.g. 3"
+            placeholder: "3"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-            className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-            children: "Number of Bathrooms *"
+            className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+            children: "Bathrooms *"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
             name: "bathrooms",
@@ -862,71 +851,102 @@ const CtaHome = () => {
             onChange: handleChange,
             required: true,
             className: "bs-input w-full",
-            placeholder: "e.g. 2"
+            placeholder: "2"
           })]
         })]
+      }), showMoveOutNotice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "overflow-hidden border border-[var(--bs-gold)]/35 bg-[linear-gradient(180deg,rgba(244,197,66,0.16)_0%,rgba(244,197,66,0.08)_100%)] px-4 py-3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "flex items-start gap-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "mt-[2px] inline-flex h-6 w-6 shrink-0 items-center justify-center border border-[var(--bs-gold)]/45 bg-white/60 text-xs font-black text-[var(--bs-primary)]",
+            children: "!"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+              children: "Move-Out Notice"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "mt-1 text-sm leading-6 text-[var(--bs-text-soft)]",
+              children: "For move-out cleanings, the property must be vacant and all drawers/cabinets must be empty before our team arrives."
+            })]
+          })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-          className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-          children: "Date of Last Professional Cleaning"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-          type: "text",
-          name: "last_cleaning",
-          value: formData.last_cleaning,
-          onChange: handleChange,
-          className: "bs-input w-full",
-          placeholder: "Approximate date"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-          className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-          children: "Allergies or Chemical Preferences"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-          type: "text",
-          name: "allergies",
-          value: formData.allergies,
-          onChange: handleChange,
-          className: "bs-input w-full",
-          placeholder: "No bleach, fragrance-free, eco-friendly, client will provide"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-          className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-          children: "Special Requests or Additional Notes"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-          rows: "4",
-          name: "notes",
-          value: formData.notes,
-          onChange: handleChange,
-          className: "bs-input w-full resize-none",
-          placeholder: "Tell us anything helpful about your home or cleaning needs"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-          className: "mb-2 block text-xs font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
-          children: "Preferred Contact Method"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
-          name: "contact_method",
-          value: formData.contact_method,
-          onChange: handleChange,
-          className: "bs-input w-full",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-            value: "",
-            children: "Choose one"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-            value: "phone",
-            children: "Phone"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-            value: "email",
-            children: "Email"
+        className: "overflow-hidden border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)]",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
+          type: "button",
+          onClick: () => setShowOptionalFields(prev => !prev),
+          className: "flex w-full items-center justify-between gap-4 px-4 py-3 text-left transition hover:bg-[var(--bs-surface-2)]",
+          "aria-expanded": showOptionalFields,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-accent)]",
+              children: "Optional Details"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "mt-1 text-sm leading-6 text-[var(--bs-text-soft)]",
+              children: "Add timing, preferences, notes, and contact preference."
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "text-xl font-light text-[var(--bs-primary)]",
+            children: showOptionalFields ? '−' : '+'
+          })]
+        }), showOptionalFields && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "grid gap-4 border-t border-[var(--bs-border)] px-4 py-4",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "grid gap-4 md:grid-cols-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+                children: "Date of Last Professional Cleaning"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                type: "text",
+                name: "last_cleaning",
+                value: formData.last_cleaning,
+                onChange: handleChange,
+                className: "bs-input w-full",
+                placeholder: "Approximate date"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+                children: "Preferred Contact Method"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+                name: "contact_method",
+                value: formData.contact_method,
+                onChange: handleChange,
+                className: "bs-input w-full",
+                children: CONTACT_METHOD_OPTIONS.map(option => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+                  value: option.value,
+                  children: option.label
+                }, option.value || 'empty'))
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+              children: "Allergies or Chemical Preferences"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "text",
+              name: "allergies",
+              value: formData.allergies,
+              onChange: handleChange,
+              className: "bs-input w-full",
+              placeholder: "No bleach, fragrance-free, eco-friendly, client will provide"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              className: "mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]",
+              children: "Special Requests or Additional Notes"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+              rows: "3",
+              name: "notes",
+              value: formData.notes,
+              onChange: handleChange,
+              className: "bs-input w-full resize-none",
+              placeholder: "Tell us anything helpful about your home or cleaning needs"
+            })]
           })]
         })]
-      }), showMoveOutNotice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "border border-[var(--bs-gold)]/35 bg-[var(--bs-gold)]/10 px-4 py-3 text-sm leading-7 text-[var(--bs-text-soft)]",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-          className: "text-[var(--bs-primary)]",
-          children: "Move-out notice:"
-        }), "For move-out cleanings, the property must be vacant and all drawers/cabinets must be empty before our team arrives."]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         className: "flex items-start gap-3 border border-[var(--bs-border)] bg-[var(--bs-surface-2)] px-4 py-3 text-sm leading-6 text-[var(--bs-text-soft)]",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
@@ -937,11 +957,11 @@ const CtaHome = () => {
           required: true,
           className: "mt-1 h-4 w-4 rounded-none border-[var(--bs-border)] text-[var(--bs-accent)]"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: ["I agree to the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          children: ["I agree to the", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "/privacy-policy/",
             className: "font-bold text-[var(--bs-primary)] underline",
             children: "Privacy Policy"
-          }), " and ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          }), ' ', "and", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "/terms-and-conditions/",
             className: "font-bold text-[var(--bs-primary)] underline",
             children: "Terms & Conditions"
@@ -950,11 +970,21 @@ const CtaHome = () => {
       }), submitMessage && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: `px-4 py-3 text-sm ${submitMessage.includes('Thank you') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`,
         children: submitMessage
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-        type: "submit",
-        disabled: isSubmitting,
-        className: "bs-btn bs-btn-primary mt-1 inline-flex items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white disabled:opacity-50 disabled:cursor-not-allowed",
-        children: isSubmitting ? 'Sending...' : 'Request My Free Quote'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "grid gap-3",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          type: "submit",
+          disabled: isSubmitting,
+          className: "bs-btn bs-btn-primary inline-flex min-h-[56px] items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white disabled:cursor-not-allowed disabled:opacity-50",
+          children: isSubmitting ? 'Sending...' : 'Request My Free Quote'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+          className: "text-center text-xs leading-6 text-[var(--bs-text-soft)]",
+          children: ["Prefer to call?", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            href: "tel:+18582551498",
+            className: "font-bold text-[var(--bs-primary)] underline",
+            children: "(858) 255-1498"
+          })]
+        })]
       })]
     })]
   });
@@ -1306,10 +1336,14 @@ if (document.querySelector("#render-react-example-here")) {
   const root = react_dom_client__WEBPACK_IMPORTED_MODULE_7__.createRoot(document.querySelector("#render-react-example-here"));
   root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
 }
-if (document.querySelector("#bs-cta-home-root")) {
-  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_7__.createRoot(document.querySelector("#bs-cta-home-root"));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_scripts_ctahome__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
-}
+const ctaMountIds = ["#bs-cta-home-root", "#bs-cta-home-root-bottom"];
+ctaMountIds.forEach(selector => {
+  const el = document.querySelector(selector);
+  if (el) {
+    const root = react_dom_client__WEBPACK_IMPORTED_MODULE_7__.createRoot(el);
+    root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_scripts_ctahome__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
+  }
+});
 let chatbotContainer = document.getElementById("bs-chatbot");
 if (!chatbotContainer) {
   chatbotContainer = document.createElement("div");

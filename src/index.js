@@ -15,10 +15,15 @@ if (document.querySelector("#render-react-example-here")) {
   root.render(<ExampleReactComponent />)
 }
 
-if (document.querySelector("#bs-cta-home-root")) {
-  const root = ReactDOM.createRoot(document.querySelector("#bs-cta-home-root"))
-  root.render(<CtaHome />)
-}
+const ctaMountIds = ["#bs-cta-home-root", "#bs-cta-home-root-bottom"]
+
+ctaMountIds.forEach((selector) => {
+  const el = document.querySelector(selector)
+  if (el) {
+    const root = ReactDOM.createRoot(el)
+    root.render(<CtaHome />)
+  }
+})
 
 let chatbotContainer = document.getElementById("bs-chatbot")
 

@@ -141,44 +141,44 @@ get_header(); ?>
           </div>
         </div>
 
-<div class="bs-reveal-right bs-sticky-form">
-    <div id="bs-cta-home-root"></div>  <!-- ← React se monta aquí automáticamente -->
-</div>
+        <div class="bs-reveal-right bs-sticky-form">
+          <div id="bs-cta-home-root"></div>
+        </div>
 
       </div>
     </div>
   </section>
 
   <!-- TRUST STRIP -->
-  <section class="relative z-20 -mt-8 lg:-mt-10">
+  <section class="relative z-20 -mt-8 overflow-hidden lg:-mt-10">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="grid gap-0 overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-trust)] md:grid-cols-2 xl:grid-cols-4">
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 border-b border-[var(--bs-border)] px-5 py-5 md:border-r xl:border-b-0">
-          <span class="bs-chip-icon bg-[var(--bs-accent)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Experience</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">15+ Years of Experience</p>
-          </div>
-        </div>
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 border-b border-[var(--bs-border)] px-5 py-5 xl:border-b-0 xl:border-r">
-          <span class="bs-chip-icon bg-[var(--bs-primary)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Trust</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">Licensed &amp; Insured</p>
-          </div>
-        </div>
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 border-b border-[var(--bs-border)] px-5 py-5 md:border-r md:border-b-0">
-          <span class="bs-chip-icon bg-[var(--bs-gold)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Social Proof</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">4.5★ on Yelp · 54 Reviews</p>
-          </div>
-        </div>
-        <div class="bs-reveal-up bs-hover-rise flex items-center gap-4 px-5 py-5">
-          <span class="bs-chip-icon bg-[var(--bs-accent)]"></span>
-          <div>
-            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">Prepared</p>
-            <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">Commercial-Grade Equipment</p>
+      <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-trust)]">
+        <div class="bs-trust-marquee">
+          <div class="bs-trust-track">
+            <?php
+              $trust_items = [
+                ['label' => 'Experience',   'value' => '15+ Years of Experience',    'color' => 'var(--bs-accent)'],
+                ['label' => 'Trust',        'value' => 'Licensed & Insured',         'color' => 'var(--bs-primary)'],
+                ['label' => 'Social Proof', 'value' => '4.5★ on Yelp · 54 Reviews',  'color' => 'var(--bs-gold)'],
+                ['label' => 'Prepared',     'value' => 'Commercial-Grade Equipment', 'color' => 'var(--bs-accent)'],
+              ];
+
+              $marquee_items = array_merge($trust_items, $trust_items, $trust_items);
+            ?>
+
+            <?php foreach ($marquee_items as $item) : ?>
+              <div class="bs-trust-marquee-item">
+                <span class="bs-chip-icon" style="background:<?php echo esc_attr($item['color']); ?>"></span>
+                <div>
+                  <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">
+                    <?php echo esc_html($item['label']); ?>
+                  </p>
+                  <p class="mt-1 text-sm font-extrabold text-[var(--bs-primary)]">
+                    <?php echo esc_html($item['value']); ?>
+                  </p>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -349,70 +349,48 @@ get_header(); ?>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-<section class="relative overflow-hidden border-t border-[var(--bs-border)] bg-[linear-gradient(180deg,#f7fbfd_0%,#eef6fb_100%)] py-20 lg:py-24">
-  <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-tl)"></div>
-  <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-br)"></div>
-  <div class="absolute left-[-70px] top-10 h-36 w-36 rotate-12 border border-[var(--bs-border)]/80"></div>
-  <div class="absolute right-[-40px] bottom-8 h-28 w-28 rotate-12 border border-[var(--bs-gold)]/20"></div>
+   <!-- FINAL CTA -->
+  <section class="relative overflow-hidden border-t border-[var(--bs-border)] bg-[linear-gradient(180deg,#f7fbfd_0%,#eef6fb_100%)] py-20 lg:py-24">
+    <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-tl)"></div>
+    <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-br)"></div>
+    <div class="absolute left-[-70px] top-10 h-36 w-36 rotate-12 border border-[var(--bs-border)]/80"></div>
+    <div class="absolute right-[-40px] bottom-8 h-28 w-28 rotate-12 border border-[var(--bs-gold)]/20"></div>
 
-  <div class="relative mx-auto max-w-6xl px-4">
-    <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-      <div class="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+    <div class="relative mx-auto max-w-7xl px-4">
+      <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
+        <div class="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[1fr_1fr] lg:items-center">
 
-        <div class="bs-reveal-left">
-          <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">
-            Ready When You Are
-          </p>
-
-          <h2 class="mt-4 max-w-[14ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
-            Give Your Home the Care It Deserves
-          </h2>
-
-          <p class="mt-5 max-w-2xl text-base leading-8 text-[var(--bs-text-soft)]">
-            When you choose Brilliant Star, you're choosing a team that shows up on time, pays attention to every detail, and genuinely cares about the result. Let us take cleaning off your plate — so you can enjoy your home the way it was meant to be enjoyed.
-          </p>
-        </div>
-
-        <div class="bs-reveal-right">
-          <div class="border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)] p-6 shadow-[var(--bs-shadow-service)] md:p-7">
-            <p class="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">
-              Get Started
+          <div class="bs-reveal-left">
+            <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">
+              Ready When You Are
             </p>
 
-            <div class="mt-5 flex flex-col gap-4">
-              <a href="/contact-us/" class="bs-btn bs-btn-primary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-                Request a Free Quote
-              </a>
+            <h2 class="mt-4 max-w-[14ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
+              Give Your Home the Care It Deserves
+            </h2>
 
-              <a href="tel:+18582551498" class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-                Call (858) 255-1498
-              </a>
-            </div>
-
-            <p class="mt-5 text-sm leading-7 text-[var(--bs-text-soft)]">
-              Or call us directly: (858) 255-1498 — Mon–Thu 7:30 AM to 4:30 PM · Fri 7:30 AM to 4:00 PM
+            <p class="mt-5 max-w-2xl text-base leading-8 text-[var(--bs-text-soft)]">
+              When you choose Brilliant Star, you're choosing a team that shows up on time, pays attention to every detail, and genuinely cares about the result. Let us take cleaning off your plate — so you can enjoy your home the way it was meant to be enjoyed.
             </p>
           </div>
-        </div>
 
+          <div class="bs-reveal-right">
+            <div class="bs-final-cta-shell">
+              <div id="bs-cta-home-root-bottom"></div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
-  /* ================================================================
-     DESIGN TOKENS — edita SOLO esta seccion para cambiar cualquier
-     color, sombra, timing o espaciado en todo el template.
 
-     NOTA: los hex son placeholders segun el Developer Brief.
-     Confirmar colores oficiales con Adriana Gonzalez antes del launch.
-  ================================================================ */
   :root {
 
     /* Colores base */
@@ -488,7 +466,7 @@ get_header(); ?>
     --bs-img-fade-b:   linear-gradient(180deg, transparent, rgba(11,37,56,0.46));
 
     --bs-cta-soft-glow-tl: radial-gradient(circle at top left, rgba(79,180,231,0.12), transparent 28%);
---bs-cta-soft-glow-br: radial-gradient(circle at bottom right, rgba(244,197,66,0.10), transparent 24%);
+    --bs-cta-soft-glow-br: radial-gradient(circle at bottom right, rgba(244,197,66,0.10), transparent 24%);
 
     /* Clip-path offset para botones y form shell */
     --bs-clip-btn:     14px;
@@ -503,6 +481,7 @@ get_header(); ?>
     --bs-duration-float:   6s;
     --bs-duration-zoom:    16s;
     --bs-duration-pulse:   2.8s;
+    --bs-trust-marquee-duration: 26s;
   }
 
   /* Tipografia */
@@ -556,6 +535,36 @@ get_header(); ?>
     width: 13px; height: 13px;
     flex: 0 0 auto;
     animation: bsPulseDot var(--bs-duration-pulse) ease-in-out infinite;
+  }
+
+  /* Trust marquee */
+  .bs-trust-marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .bs-trust-track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    animation: bsTrustMarquee var(--bs-trust-marquee-duration) linear infinite;
+    will-change: transform;
+  }
+
+  .bs-trust-marquee:hover .bs-trust-track {
+    animation-play-state: paused;
+  }
+
+  .bs-trust-marquee-item {
+    flex: 0 0 auto;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.35rem 1.5rem;
+    border-right: 1px solid var(--bs-border);
+    background: #ffffff;
   }
 
   /* Service card mark */
@@ -645,6 +654,13 @@ get_header(); ?>
     box-shadow: var(--bs-shadow-btn-white-hover);
   }
 
+  .bs-final-cta-shell {
+    border: 1px solid var(--bs-border);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+    padding: 1.25rem;
+    box-shadow: var(--bs-shadow-service);
+  }
+
   /* Hover interactions */
   .bs-hover-rise {
     transition: transform var(--bs-duration-base) ease, box-shadow var(--bs-duration-base) ease, background-color var(--bs-duration-base) ease;
@@ -691,6 +707,10 @@ get_header(); ?>
   @keyframes bsHeroZoom  { 0% { transform: scale(1.1); } 100% { transform: scale(1); } }
   @keyframes bsFloatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   @keyframes bsPulseDot  { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.14); opacity: .8; } }
+  @keyframes bsTrustMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
 
   /* Mobile */
   @media (max-width: 1024px) {
@@ -703,13 +723,22 @@ get_header(); ?>
     .bs-home br { display: none; }
     .bs-form-shell, .bs-contact-panel,
     .bs-btn-primary, .bs-btn-secondary, .bs-btn-gold, .bs-btn-outline-white { clip-path: none; }
+
+    .bs-trust-marquee-item {
+      min-width: 260px;
+      padding: 1rem 1.1rem;
+    }
+
+    .bs-final-cta-shell {
+      padding: 1rem;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .bs-reveal-up, .bs-reveal-left, .bs-reveal-right, .bs-reveal-stagger,
     .bs-hero-image, .bs-btn, .bs-form-shell, .bs-chip-icon, .bs-parallax-soft,
     .bs-service-card, .bs-location-card, .bs-hover-rise, .bs-contact-panel, .bs-faq-item,
-    .bs-sticky-form {
+    .bs-sticky-form, .bs-trust-track {
       opacity: 1 !important; transform: none !important;
       transition: none !important; animation: none !important;
     }
@@ -775,6 +804,41 @@ get_header(); ?>
       const toggleNotice = () => moveoutNotice.classList.toggle("hidden", serviceSelect.value !== "move-out");
       serviceSelect.addEventListener("change", toggleNotice);
       toggleNotice();
+    }
+
+    const heroRoot = document.getElementById("bs-cta-home-root");
+    const bottomRoot = document.getElementById("bs-cta-home-root-bottom");
+
+    if (heroRoot && bottomRoot) {
+      const syncBottomCta = () => {
+        if (!heroRoot.innerHTML.trim()) return;
+        bottomRoot.innerHTML = heroRoot.innerHTML;
+
+        const ids = bottomRoot.querySelectorAll("[id]");
+        ids.forEach((el, index) => {
+          el.id = el.id + "-bottom-" + index;
+        });
+
+        const labels = bottomRoot.querySelectorAll("label[for]");
+        labels.forEach((label, index) => {
+          label.setAttribute("for", label.getAttribute("for") + "-bottom-" + index);
+        });
+      };
+
+      const ctaObserver = new MutationObserver(() => {
+        syncBottomCta();
+      });
+
+      ctaObserver.observe(heroRoot, {
+        childList: true,
+        subtree: true,
+        attributes: true
+      });
+
+      const syncAttempts = [250, 700, 1400, 2400];
+      syncAttempts.forEach((delay) => {
+        setTimeout(syncBottomCta, delay);
+      });
     }
 
     const heroImage     = document.querySelector(".bs-hero-image");

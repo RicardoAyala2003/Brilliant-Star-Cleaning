@@ -214,11 +214,7 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- FOOTER SEPARATOR -->
-<div class="bs-footer-separator" aria-hidden="true">
-  <div class="bs-footer-separator__line"></div>
-  <div class="bs-footer-separator__glow"></div>
-</div>
+
 
 </main>
 
