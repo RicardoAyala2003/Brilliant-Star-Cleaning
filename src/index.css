@@ -116,13 +116,13 @@ h1, h2, h3, h4, h5, h6,
 
 @media (max-width: 980px) {
   .bs-brand__logo {
-    height: 38px;
+    height: 64px;
   }
 }
 
 @media (max-width: 640px) {
   .bs-brand__logo {
-    height: 24px;
+    height: 56px;
   }
 }
 
@@ -860,32 +860,65 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 980px) {
+  .bs-topbar__center,
+  .bs-yelp-btn {
+    display: none;
+  }
+
   .bs-topbar__inner {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
-    gap: 0.75rem;
-    padding-block: 0.8rem;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 48px;
+    padding-block: 0.45rem;
   }
 
   .bs-topbar__left,
-  .bs-topbar__center,
   .bs-topbar__right {
-    width: 100%;
-    justify-self: stretch;
+    width: auto;
+    min-width: 0;
+    flex-wrap: nowrap;
   }
 
   .bs-topbar__left {
     justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .bs-topbar__center {
-    justify-content: center;
+    gap: 0.45rem;
   }
 
   .bs-topbar__right {
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.3rem;
+  }
+
+  .bs-topbar__chip {
+    min-height: 32px;
+    padding-inline: 0.7rem;
+    font-size: 0.64rem;
+    white-space: nowrap;
+  }
+
+  .bs-topbar__chip--muted {
+    min-width: 32px;
+    padding-inline: 0.55rem;
+    gap: 0;
+  }
+
+  .bs-topbar__chip--muted > span:last-child {
+    display: none;
+  }
+
+  .bs-topbar__socials {
+    gap: 0.25rem;
+  }
+
+  .bs-social-link {
+    width: 29px;
+    height: 29px;
+  }
+
+  .bs-social-link svg {
+    width: 13px;
+    height: 13px;
   }
 
   .bs-desktop-nav,
@@ -920,22 +953,43 @@ h1, h2, h3, h4, h5, h6,
     width: min(100% - 1.2rem, 100%);
   }
 
-  .bs-topbar__left,
-  .bs-topbar__center,
-  .bs-topbar__right {
-    width: 100%;
+  .bs-topbar__inner {
+    gap: 0.45rem;
+    padding-block: 0.4rem;
   }
 
   .bs-topbar__left {
-    gap: 0.65rem;
+    gap: 0.35rem;
   }
 
   .bs-topbar__right {
-    gap: 0.75rem;
+    gap: 0.25rem;
   }
 
-  .bs-topbar__link {
-    font-size: 0.72rem;
+  .bs-topbar__chip {
+    min-height: 30px;
+    padding-inline: 0.58rem;
+    font-size: 0.58rem;
+  }
+
+  .bs-topbar__chip--muted {
+    min-width: 30px;
+    padding-inline: 0.48rem;
+  }
+
+  .bs-topbar__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .bs-social-link {
+    width: 27px;
+    height: 27px;
+  }
+
+  .bs-social-link svg {
+    width: 12px;
+    height: 12px;
   }
 
   .bs-brand__logo-wrap--mono {
@@ -944,7 +998,7 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .bs-brand__logo {
-    height: 24px;
+    height: 56px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -963,17 +1017,26 @@ h1, h2, h3, h4, h5, h6,
     font-size: 0.54rem;
     letter-spacing: 0.16em;
   }
+}
 
-  .bs-topbar__pill,
-  .bs-yelp-btn {
-    min-height: 32px;
-    padding-inline: 0.75rem;
-    font-size: 0.62rem;
+@media (max-width: 420px) {
+  .bs-topbar__chip {
+    font-size: 0.54rem;
+    padding-inline: 0.5rem;
   }
 
   .bs-social-link {
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .bs-social-link svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .bs-brand__logo {
+    height: 52px;
   }
 }
 
