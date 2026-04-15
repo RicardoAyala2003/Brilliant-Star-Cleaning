@@ -11,8 +11,8 @@ get_header(); ?>
 <main class="bs-about-page overflow-hidden bg-[var(--bs-bg)] text-[var(--bs-text)]">
 
   <?php
-    $hero_image = 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop';
-    $team_image = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop';
+    $hero_image   = 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop';
+    $team_image   = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop';
     $detail_image = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1200&auto=format&fit=crop';
 
     $about_paragraphs = [
@@ -65,19 +65,20 @@ get_header(); ?>
       <div class="absolute inset-0" style="background:var(--bs-hero-overlay)"></div>
       <div class="absolute inset-0" style="background:var(--bs-hero-glow-tl)"></div>
       <div class="absolute inset-0" style="background:var(--bs-hero-glow-br)"></div>
-      <div class="absolute inset-y-0 left-[7%] hidden w-px bg-white/12 lg:block"></div>
-      <div class="absolute inset-y-0 right-[11%] hidden w-px bg-white/10 lg:block"></div>
+      <div class="absolute inset-y-0 left-[7%] hidden w-px lg:block" style="background:var(--bs-hero-line-v-left)"></div>
+      <div class="absolute inset-y-0 right-[11%] hidden w-px lg:block" style="background:var(--bs-hero-line-v-right)"></div>
       <div class="absolute inset-x-0 top-0 h-px" style="background:var(--bs-hero-line-h)"></div>
       <div class="absolute bottom-0 left-0 right-0 h-28" style="background:var(--bs-hero-fade-b)"></div>
-      <div class="absolute right-[-90px] top-[-70px] h-56 w-56 rotate-[18deg] border border-white/10"></div>
-      <div class="absolute left-[-60px] bottom-[12%] h-40 w-40 rotate-[18deg] border border-white/8"></div>
+      <div class="absolute right-[-90px] top-[-70px] h-56 w-56 rotate-[18deg]" style="border:1px solid var(--bs-hero-frame-strong)"></div>
+      <div class="absolute left-[-60px] bottom-[12%] h-40 w-40 rotate-[18deg]" style="border:1px solid var(--bs-hero-frame-soft)"></div>
     </div>
 
     <div class="relative z-10 mx-auto max-w-7xl px-4 py-18 lg:py-24">
       <div class="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-end">
+
         <div class="bs-reveal-up">
           <div class="max-w-3xl">
-            <p class="inline-flex border border-white/18 bg-white/8 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.24em] text-white/86 backdrop-blur-sm">
+            <p class="bs-hero-kicker inline-flex px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.24em] backdrop-blur-sm">
               About Brilliant Star
             </p>
 
@@ -85,7 +86,7 @@ get_header(); ?>
               15 Years of Cleaning San Diego Homes with Care and Expertise
             </h1>
 
-            <p class="mt-6 max-w-2xl text-base leading-8 text-white/82 md:text-lg">
+            <p class="mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
               Meet the Brilliant Star team — San Diego's trusted home cleaning experts for 15+ years. Licensed, insured, and committed to exceptional results in every home we serve.
             </p>
 
@@ -102,20 +103,21 @@ get_header(); ?>
 
         <div class="bs-reveal-right">
           <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            <div class="bs-about-stat border border-white/12 bg-white/10 px-5 py-5 backdrop-blur-sm">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/66">Experience</p>
+            <div class="bs-about-stat px-5 py-5">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-stat-label)]">Experience</p>
               <p class="mt-2 text-2xl font-extrabold tracking-[-0.03em] text-white">15+ Years</p>
             </div>
-            <div class="bs-about-stat border border-white/12 bg-white/10 px-5 py-5 backdrop-blur-sm">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/66">Coverage</p>
+            <div class="bs-about-stat px-5 py-5">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-stat-label)]">Coverage</p>
               <p class="mt-2 text-2xl font-extrabold tracking-[-0.03em] text-white">San Diego Local</p>
             </div>
-            <div class="bs-about-stat border border-white/12 bg-white/10 px-5 py-5 backdrop-blur-sm">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/66">Trust</p>
+            <div class="bs-about-stat px-5 py-5">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-stat-label)]">Trust</p>
               <p class="mt-2 text-2xl font-extrabold tracking-[-0.03em] text-white">Licensed &amp; Insured</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -162,17 +164,18 @@ get_header(); ?>
   <section class="bg-[var(--bs-bg)] pb-20 pt-24 lg:pb-24 lg:pt-28">
     <div class="mx-auto max-w-7xl px-4">
       <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+
         <div class="bs-reveal-left">
           <div class="relative overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-            <div class="absolute left-0 top-0 z-10 h-14 w-14 border-r border-b border-white/18 bg-[rgba(255,255,255,0.08)] backdrop-blur-sm"></div>
+            <div class="absolute left-0 top-0 z-10 h-14 w-14 border-r border-b backdrop-blur-sm" style="border-color:var(--bs-img-corner-border); background:var(--bs-img-corner-bg)"></div>
             <img
               src="<?php echo esc_url($team_image); ?>"
               alt="Professional residential cleaning team in San Diego"
               class="bs-parallax-soft h-[420px] w-full object-cover md:h-[620px]"
             >
             <div class="absolute inset-x-0 bottom-0 h-44" style="background:var(--bs-img-fade-b)"></div>
-            <div class="absolute bottom-5 left-5 border border-white/18 bg-white/12 px-4 py-3 backdrop-blur-sm">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/72">Trusted Since</p>
+            <div class="bs-image-badge absolute bottom-5 left-5 px-4 py-3">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-img-badge-label)]">Trusted Since</p>
               <p class="mt-1 text-lg font-extrabold text-white">2009</p>
             </div>
           </div>
@@ -190,6 +193,7 @@ get_header(); ?>
             <?php endforeach; ?>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -198,7 +202,7 @@ get_header(); ?>
   <section class="relative overflow-hidden border-y border-[var(--bs-border)] bg-white py-20 lg:py-24">
     <div class="absolute right-0 top-0 h-full w-full" style="background:var(--bs-services-glow)"></div>
     <div class="absolute left-[-80px] top-16 h-44 w-44 rotate-12 border border-[var(--bs-border)]"></div>
-    <div class="absolute bottom-[-60px] right-10 h-36 w-36 border border-[var(--bs-gold)]/20"></div>
+    <div class="absolute bottom-[-60px] right-10 h-36 w-36" style="border:1px solid var(--bs-gold-deco-border)"></div>
 
     <div class="relative mx-auto max-w-7xl px-4">
       <div class="bs-reveal-up mx-auto max-w-4xl text-center">
@@ -210,8 +214,8 @@ get_header(); ?>
 
       <div class="mt-12 grid gap-6 lg:grid-cols-3">
         <?php foreach ($highlights as $item) : ?>
-          <article class="bs-reveal-stagger bs-service-card group relative overflow-hidden border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)] p-7 shadow-[var(--bs-shadow-service)]">
-            <div class="absolute inset-y-0 left-0 w-[3px] bg-[var(--bs-accent)] opacity-0 transition duration-[var(--bs-duration-card)] group-hover:opacity-100"></div>
+          <article class="bs-reveal-stagger bs-service-card group relative overflow-hidden border border-[var(--bs-border)] p-7 shadow-[var(--bs-shadow-service)]">
+            <div class="absolute inset-y-0 left-0 w-[4px] bg-[var(--bs-card-accent-bar)] opacity-0 transition duration-[var(--bs-duration-card)] group-hover:opacity-100"></div>
             <div class="absolute -right-10 -top-10 h-24 w-24 rotate-12 border border-[var(--bs-border)] opacity-0 transition duration-[var(--bs-duration-card)] group-hover:opacity-100"></div>
 
             <p class="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
@@ -235,6 +239,7 @@ get_header(); ?>
   <section class="bg-[var(--bs-bg)] py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4">
       <div class="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+
         <div class="bs-reveal-left order-2 lg:order-1">
           <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">How We Work</p>
           <h2 class="mt-4 max-w-[15ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
@@ -257,15 +262,16 @@ get_header(); ?>
             <div class="absolute inset-x-0 bottom-0 h-36" style="background:var(--bs-img-fade-b)"></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- OPTIONAL REVIEWS -->
+  <!-- REVIEWS -->
   <section class="border-y border-[var(--bs-border)] bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4">
       <div class="bs-reveal-up mx-auto max-w-4xl text-center">
-        <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">Reviews</p>
+        <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-gold)]">Reviews</p>
         <h2 class="mt-4 text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
           What San Diego homeowners say about us
         </h2>
@@ -276,9 +282,9 @@ get_header(); ?>
 
       <div class="mt-12 grid gap-6 lg:grid-cols-3">
         <?php foreach ($reviews as $review) : ?>
-          <article class="bs-reveal-stagger bs-hover-rise border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)] p-7 shadow-[var(--bs-shadow-review)]">
+          <article class="bs-reveal-stagger bs-hover-rise bs-review-card border border-[var(--bs-border)] p-7 shadow-[var(--bs-shadow-review)]">
             <div class="mb-5 flex items-center justify-between border-b border-[var(--bs-border)] pb-4">
-              <span class="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">Yelp Review</span>
+              <span class="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-gold)]">Yelp Review</span>
               <span class="text-[var(--bs-gold)]">★★★★★</span>
             </div>
             <p class="text-base leading-8 text-[var(--bs-text-soft)]"><?php echo esc_html($review['copy']); ?></p>
@@ -295,8 +301,8 @@ get_header(); ?>
     </div>
   </section>
 
-   <!-- FINAL CTA -->
-  <section class="relative overflow-hidden border-t border-[var(--bs-border)] bg-[linear-gradient(180deg,#f7fbfd_0%,#eef6fb_100%)] py-20 lg:py-24">
+  <!-- FINAL CTA -->
+  <section class="relative overflow-hidden border-t border-[var(--bs-border)] py-20 lg:py-24" style="background:var(--bs-final-cta-bg)">
     <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-tl)"></div>
     <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-br)"></div>
 
@@ -304,9 +310,8 @@ get_header(); ?>
       <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
         <div class="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[1fr_1fr] lg:items-center">
 
-          <!-- TEXTO -->
           <div class="bs-reveal-left">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">
+            <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-gold)]">
               Ready When You Are
             </p>
 
@@ -319,7 +324,6 @@ get_header(); ?>
             </p>
           </div>
 
-          <!-- CTA FORM -->
           <div class="bs-reveal-right">
             <div class="bs-final-cta-shell">
               <div id="bs-cta-home-root-bottom"></div>
@@ -336,62 +340,114 @@ get_header(); ?>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
   :root {
-    --bs-primary:        #0b2538;
-    --bs-primary-2:      #143a57;
-    --bs-accent:         #4fb4e7;
-    --bs-accent-hover:   #38a9df;
-    --bs-gold:           #f4c542;
-    --bs-gold-hover:     #e5b82f;
+    /* Paleta principal */
+    --bs-primary:        #18364a;
+    --bs-primary-2:      #28495f;
+    --bs-accent:         #9ab3c7;
+    --bs-accent-hover:   #89a7be;
+    --bs-gold:           #c9a13a;
+    --bs-gold-hover:     #b88f30;
 
-    --bs-bg:             #f6fafc;
+    /* Fondos */
+    --bs-bg:             #f7f8f7;
     --bs-surface:        #ffffff;
-    --bs-surface-2:      #eef6fb;
+    --bs-surface-2:      #eef3f5;
+    --bs-surface-3:      #fcfbf8;
+    --bs-final-cta-bg:   linear-gradient(180deg, #faf9f5 0%, #f1f3ef 100%);
+    --bs-card-soft-bg:   linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+    --bs-review-card-bg: linear-gradient(180deg, #ffffff 0%, #faf8f4 100%);
 
-    --bs-text:           #162635;
-    --bs-text-soft:      rgba(22, 38, 53, 0.78);
-    --bs-text-muted:     rgba(22, 38, 53, 0.54);
+    /* Texto */
+    --bs-text:           #1c2831;
+    --bs-text-soft:      rgba(28, 40, 49, 0.78);
+    --bs-text-muted:     rgba(28, 40, 49, 0.56);
 
-    --bs-border:         rgba(11, 37, 56, 0.10);
+    /* Bordes */
+    --bs-border:                 rgba(24, 54, 74, 0.10);
+    --bs-border-hover-service:   rgba(154, 179, 199, 0.30);
+    --bs-gold-deco-border:       rgba(201, 161, 58, 0.20);
 
-    --bs-shadow-card:            0 28px 70px rgba(11, 37, 56, 0.08);
-    --bs-shadow-trust:           0 22px 60px rgba(11, 37, 56, 0.08);
-    --bs-shadow-service:         0 18px 46px rgba(11, 37, 56, 0.06);
-    --bs-shadow-review:          0 18px 48px rgba(11, 37, 56, 0.06);
+    /* Sombras */
+    --bs-shadow-card:            0 28px 70px rgba(24, 54, 74, 0.08);
+    --bs-shadow-trust:           0 22px 60px rgba(24, 54, 74, 0.08);
+    --bs-shadow-service:         0 18px 46px rgba(24, 54, 74, 0.06);
+    --bs-shadow-review:          0 18px 48px rgba(24, 54, 74, 0.06);
+    --bs-shadow-hover-rise:      0 18px 44px rgba(24, 54, 74, 0.10);
+    --bs-shadow-hover-service:   0 28px 60px rgba(24, 54, 74, 0.10);
 
-    --bs-shadow-hover-rise:      0 18px 44px rgba(11, 37, 56, 0.10);
-    --bs-shadow-hover-service:   0 28px 60px rgba(11, 37, 56, 0.10);
+    /* Sombras de botones */
+    --bs-shadow-btn-primary:         0 18px 38px rgba(201, 161, 58, 0.22);
+    --bs-shadow-btn-primary-hover:   0 22px 44px rgba(201, 161, 58, 0.30);
+    --bs-shadow-btn-secondary:       0 18px 38px rgba(24, 54, 74, 0.18);
+    --bs-shadow-btn-secondary-hover: 0 24px 48px rgba(24, 54, 74, 0.24);
+    --bs-shadow-btn-white-hover:     0 18px 40px rgba(24, 54, 74, 0.16);
 
-    --bs-shadow-btn-primary:         0 18px 38px rgba(79, 180, 231, 0.22);
-    --bs-shadow-btn-primary-hover:   0 22px 44px rgba(79, 180, 231, 0.28);
-    --bs-shadow-btn-secondary:       0 18px 38px rgba(11, 37, 56, 0.18);
-    --bs-shadow-btn-secondary-hover: 0 24px 48px rgba(11, 37, 56, 0.22);
-    --bs-shadow-btn-white-hover:     0 18px 40px rgba(255, 255, 255, 0.10);
+    /* Hero */
+    --bs-hero-overlay:         linear-gradient(92deg, rgba(20,39,51,0.76) 0%, rgba(20,39,51,0.64) 38%, rgba(20,39,51,0.34) 70%, rgba(20,39,51,0.14) 100%);
+    --bs-hero-glow-tl:         radial-gradient(circle at top left, rgba(154,179,199,0.18), transparent 28%);
+    --bs-hero-glow-br:         radial-gradient(circle at bottom right, rgba(201,161,58,0.12), transparent 24%);
+    --bs-hero-line-h:          linear-gradient(90deg, transparent, rgba(255,255,255,0.30), transparent);
+    --bs-hero-line-v-left:     rgba(255,255,255,0.10);
+    --bs-hero-line-v-right:    rgba(255,255,255,0.08);
+    --bs-hero-fade-b:          linear-gradient(180deg, transparent, rgba(20,39,51,0.24));
+    --bs-hero-frame-strong:    rgba(255,255,255,0.10);
+    --bs-hero-frame-soft:      rgba(255,255,255,0.08);
+    --bs-hero-text-soft:       rgba(255,255,255,0.84);
 
-    --bs-border-hover-service: rgba(79, 180, 231, 0.24);
+    /* Kicker hero */
+    --bs-hero-kicker-border:   rgba(201,161,58,0.36);
+    --bs-hero-kicker-bg:       rgba(255,255,255,0.08);
+    --bs-hero-kicker-text:     rgba(255,255,255,0.92);
+    --bs-hero-kicker-shadow:   0 10px 30px rgba(0,0,0,0.12);
 
-    --bs-hero-overlay: linear-gradient(92deg, rgba(8,27,42,0.95) 0%, rgba(8,27,42,0.88) 38%, rgba(8,27,42,0.56) 70%, rgba(8,27,42,0.26) 100%);
-    --bs-hero-glow-tl: radial-gradient(circle at top left, rgba(90,190,234,0.16), transparent 26%);
-    --bs-hero-glow-br: radial-gradient(circle at bottom right, rgba(244,197,66,0.10), transparent 24%);
-    --bs-hero-line-h:  linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
-    --bs-hero-fade-b:  linear-gradient(180deg, transparent, rgba(8,27,42,0.42));
+    /* Stats hero */
+    --bs-hero-stat-border:     rgba(255,255,255,0.12);
+    --bs-hero-stat-bg:         rgba(255,255,255,0.10);
+    --bs-hero-stat-bg-hover:   rgba(255,255,255,0.14);
+    --bs-hero-stat-border-hover: rgba(255,255,255,0.24);
+    --bs-hero-stat-label:      rgba(255,255,255,0.66);
 
-    --bs-cta-soft-glow-tl: radial-gradient(circle at top left, rgba(79,180,231,0.12), transparent 28%);
-    --bs-cta-soft-glow-br: radial-gradient(circle at bottom right, rgba(244,197,66,0.10), transparent 24%);
+    /* Elementos de imagen */
+    --bs-img-fade-b:           linear-gradient(180deg, transparent, rgba(24,54,74,0.42));
+    --bs-img-corner-border:    rgba(255,255,255,0.18);
+    --bs-img-corner-bg:        rgba(255,255,255,0.08);
+    --bs-img-badge-border:     rgba(255,255,255,0.18);
+    --bs-img-badge-bg:         rgba(255,255,255,0.12);
+    --bs-img-badge-label:      rgba(255,255,255,0.72);
 
-    --bs-services-glow: radial-gradient(circle at top right, rgba(79,180,231,0.08), transparent 22%);
-    --bs-img-fade-b:   linear-gradient(180deg, transparent, rgba(11,37,56,0.46));
+    /* CTA final */
+    --bs-cta-soft-glow-tl:     radial-gradient(circle at top left, rgba(154,179,199,0.12), transparent 28%);
+    --bs-cta-soft-glow-br:     radial-gradient(circle at bottom right, rgba(201,161,58,0.10), transparent 24%);
+    --bs-final-shell-bg:       linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
 
-    --bs-clip-btn:     14px;
+    /* Decorative */
+    --bs-services-glow:        radial-gradient(circle at top right, rgba(154,179,199,0.10), transparent 22%);
+    --bs-card-accent-bar:      linear-gradient(180deg, var(--bs-accent) 0%, var(--bs-gold) 100%);
 
-    --bs-duration-fast:    0.24s;
-    --bs-duration-base:    0.28s;
-    --bs-duration-card:    0.30s;
-    --bs-duration-reveal:  0.90s;
-    --bs-duration-zoom:    16s;
-    --bs-duration-pulse:   2.8s;
+    /* Forms and buttons */
+    --bs-outline-btn-bg:             rgba(255,255,255,0.08);
+    --bs-outline-btn-border:         rgba(154,179,199,0.34);
+    --bs-outline-btn-bg-hover:       rgba(154,179,199,0.18);
+    --bs-outline-btn-border-hover:   rgba(154,179,199,0.48);
+
+    /* Trust strip */
+    --bs-trust-item-bg:        linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%);
+
+    /* Shape + timing */
+    --bs-clip-btn:             14px;
+    --bs-duration-fast:        0.24s;
+    --bs-duration-base:        0.28s;
+    --bs-duration-card:        0.30s;
+    --bs-duration-reveal:      0.90s;
+    --bs-duration-zoom:        16s;
+    --bs-duration-pulse:       2.8s;
+    --bs-trust-marquee-duration: 26s;
   }
 
-  .bs-about-page { font-family: "Inter", "Segoe UI", Arial, sans-serif; }
+  .bs-about-page {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  }
+
   .bs-about-page h1,
   .bs-about-page h2,
   .bs-about-page h3,
@@ -415,15 +471,25 @@ get_header(); ?>
     will-change: transform;
   }
 
+  .bs-hero-kicker {
+    border: 1px solid var(--bs-hero-kicker-border);
+    background: var(--bs-hero-kicker-bg);
+    color: var(--bs-hero-kicker-text);
+    box-shadow: var(--bs-hero-kicker-shadow);
+  }
+
   .bs-about-stat {
+    border: 1px solid var(--bs-hero-stat-border);
+    background: var(--bs-hero-stat-bg);
+    backdrop-filter: blur(10px);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
     transition: transform var(--bs-duration-base) ease, border-color var(--bs-duration-base) ease, background-color var(--bs-duration-base) ease;
   }
 
   .bs-about-stat:hover {
     transform: translateY(-3px);
-    border-color: rgba(255,255,255,0.24);
-    background: rgba(255,255,255,0.14);
+    border-color: var(--bs-hero-stat-border-hover);
+    background: var(--bs-hero-stat-bg-hover);
   }
 
   .bs-chip-icon {
@@ -431,6 +497,7 @@ get_header(); ?>
     width: 13px;
     height: 13px;
     flex: 0 0 auto;
+    border-radius: 999px;
     animation: bsPulseDot var(--bs-duration-pulse) ease-in-out infinite;
   }
 
@@ -470,49 +537,18 @@ get_header(); ?>
   .bs-btn:hover { transform: translateY(-2px); }
 
   .bs-btn-primary {
-    background: var(--bs-accent);
-    border-color: var(--bs-accent);
+    background: var(--bs-gold);
+    border-color: var(--bs-gold);
     box-shadow: var(--bs-shadow-btn-primary);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-primary:hover {
-    background: var(--bs-accent-hover);
-    border-color: var(--bs-accent-hover);
+    background: var(--bs-gold-hover);
+    border-color: var(--bs-gold-hover);
     box-shadow: var(--bs-shadow-btn-primary-hover);
   }
 
-
-  /* TRUST MARQUEE */
-.bs-trust-marquee {
-  overflow: hidden;
-  width: 100%;
-}
-
-.bs-trust-track {
-  display: flex;
-  width: max-content;
-  animation: bsTrustMarquee 26s linear infinite;
-}
-
-.bs-trust-marquee:hover .bs-trust-track {
-  animation-play-state: paused;
-}
-
-.bs-trust-marquee-item {
-  min-width: 320px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.3rem 1.5rem;
-  border-right: 1px solid var(--bs-border);
-  background: #fff;
-}
-
-@keyframes bsTrustMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
   .bs-btn-secondary {
     background: var(--bs-primary);
     border-color: var(--bs-primary);
@@ -527,16 +563,42 @@ get_header(); ?>
   }
 
   .bs-btn-outline-white {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.18);
+    background: var(--bs-outline-btn-bg);
+    border-color: var(--bs-outline-btn-border);
     backdrop-filter: blur(8px);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-outline-white:hover {
-    background: var(--bs-surface);
-    color: var(--bs-primary);
+    background: var(--bs-outline-btn-bg-hover);
+    border-color: var(--bs-outline-btn-border-hover);
+    color: white;
     box-shadow: var(--bs-shadow-btn-white-hover);
+  }
+
+  .bs-trust-marquee {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .bs-trust-track {
+    display: flex;
+    width: max-content;
+    animation: bsTrustMarquee var(--bs-trust-marquee-duration) linear infinite;
+  }
+
+  .bs-trust-marquee:hover .bs-trust-track {
+    animation-play-state: paused;
+  }
+
+  .bs-trust-marquee-item {
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.3rem 1.5rem;
+    border-right: 1px solid var(--bs-border);
+    background: var(--bs-trust-item-bg);
   }
 
   .bs-hover-rise {
@@ -549,6 +611,7 @@ get_header(); ?>
   }
 
   .bs-service-card {
+    background: var(--bs-card-soft-bg);
     transition: transform var(--bs-duration-card) ease, box-shadow var(--bs-duration-card) ease, border-color var(--bs-duration-card) ease, background var(--bs-duration-card) ease;
   }
 
@@ -556,6 +619,23 @@ get_header(); ?>
     transform: translateY(-6px);
     border-color: var(--bs-border-hover-service);
     box-shadow: var(--bs-shadow-hover-service);
+  }
+
+  .bs-review-card {
+    background: var(--bs-review-card-bg);
+  }
+
+  .bs-final-cta-shell {
+    border: 1px solid var(--bs-border);
+    background: var(--bs-final-shell-bg);
+    padding: 1.25rem;
+    box-shadow: var(--bs-shadow-service);
+  }
+
+  .bs-image-badge {
+    border: 1px solid var(--bs-img-badge-border);
+    background: var(--bs-img-badge-bg);
+    backdrop-filter: blur(10px);
   }
 
   .bs-parallax-soft {
@@ -598,12 +678,29 @@ get_header(); ?>
     50% { transform: scale(1.14); opacity: .8; }
   }
 
+  @keyframes bsTrustMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+
   @media (max-width: 768px) {
     .bs-about-page br { display: none; }
+
     .bs-about-stat,
     .bs-btn-primary,
     .bs-btn-secondary,
-    .bs-btn-outline-white { clip-path: none; }
+    .bs-btn-outline-white {
+      clip-path: none;
+    }
+
+    .bs-final-cta-shell {
+      padding: 1rem;
+    }
+
+    .bs-trust-marquee-item {
+      min-width: 260px;
+      padding: 1rem 1.1rem;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -617,7 +714,8 @@ get_header(); ?>
     .bs-parallax-soft,
     .bs-about-stat,
     .bs-service-card,
-    .bs-hover-rise {
+    .bs-hover-rise,
+    .bs-trust-track {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
@@ -678,23 +776,18 @@ get_header(); ?>
 
     handleParallax();
 
-const heroRoot = document.getElementById("bs-cta-home-root");
-const bottomRoot = document.getElementById("bs-cta-home-root-bottom");
+    const heroRoot = document.getElementById("bs-cta-home-root");
+    const bottomRoot = document.getElementById("bs-cta-home-root-bottom");
 
-if (heroRoot && bottomRoot) {
-  const syncBottomCta = () => {
-    if (!heroRoot.innerHTML.trim()) return;
-    bottomRoot.innerHTML = heroRoot.innerHTML;
-  };
+    if (heroRoot && bottomRoot) {
+      const syncBottomCta = () => {
+        if (!heroRoot.innerHTML.trim()) return;
+        bottomRoot.innerHTML = heroRoot.innerHTML;
+      };
 
-  setTimeout(syncBottomCta, 500);
-}
-
+      setTimeout(syncBottomCta, 500);
+    }
   });
 </script>
-
-
-
-
 
 <?php get_footer(); ?>

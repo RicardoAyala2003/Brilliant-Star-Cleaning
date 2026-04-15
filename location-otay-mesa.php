@@ -92,19 +92,19 @@ get_header(); ?>
       <div class="absolute inset-0" style="background:var(--bs-hero-overlay-main)"></div>
       <div class="absolute inset-y-0 left-0 w-full lg:w-[62%]" style="background:var(--bs-hero-overlay-left)"></div>
 
-      <div class="absolute left-[-100px] top-[-80px] h-72 w-72 rounded-full bg-[var(--bs-accent)]/12 blur-3xl"></div>
-      <div class="absolute right-[-90px] top-[10%] h-80 w-80 rounded-full bg-[var(--bs-gold)]/10 blur-3xl"></div>
-      <div class="absolute bottom-[-120px] left-[14%] h-72 w-72 rounded-full bg-white/6 blur-3xl"></div>
+      <div class="absolute left-[-100px] top-[-80px] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-accent)"></div>
+      <div class="absolute right-[-90px] top-[10%] h-80 w-80 rounded-full blur-3xl" style="background:var(--bs-hero-blob-gold)"></div>
+      <div class="absolute bottom-[-120px] left-[14%] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-soft)"></div>
 
       <div class="absolute inset-x-0 top-0 h-px" style="background:var(--bs-hero-line-h)"></div>
       <div class="absolute bottom-0 left-0 right-0 h-28" style="background:var(--bs-hero-fade-b)"></div>
 
-      <div class="absolute right-[8%] top-[12%] hidden h-56 w-56 rotate-[18deg] border border-white/10 lg:block"></div>
+      <div class="absolute right-[8%] top-[12%] hidden h-56 w-56 rotate-[18deg] lg:block" style="border:1px solid var(--bs-hero-frame-strong)"></div>
     </div>
 
     <div class="relative z-10 mx-auto max-w-7xl px-4 py-16 lg:py-24">
       <div class="max-w-4xl">
-        <p class="bs-reveal-up inline-flex border border-white/18 bg-white/8 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.24em] text-white/86 backdrop-blur-sm">
+        <p class="bs-reveal-up bs-hero-kicker inline-flex px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.24em] backdrop-blur-sm">
           Otay Mesa Service Area
         </p>
 
@@ -112,7 +112,7 @@ get_header(); ?>
           Professional House Cleaning Services in Otay Mesa, San Diego
         </h1>
 
-        <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-white/82 md:text-lg">
+        <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
           Looking for a trusted, experienced home cleaning service in Otay Mesa? Brilliant Star Cleaning Services has been serving San Diego households — including Otay Mesa — for over 15 years. We’re local, licensed, insured, and genuinely committed to leaving every home we clean in exceptional condition.
         </p>
 
@@ -128,18 +128,18 @@ get_header(); ?>
 
       <div class="mt-12 grid gap-4 md:grid-cols-3">
         <div class="bs-reveal-stagger bs-hero-strip-card">
-          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/62">Experience</p>
+          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Experience</p>
           <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">15+ Years Serving San Diego Homes</p>
         </div>
 
         <div class="bs-reveal-stagger bs-hero-strip-card">
-          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/62">Trust</p>
-          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Local, Licensed & Insured</p>
+          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Trust</p>
+          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Local, Licensed &amp; Insured</p>
         </div>
 
         <div class="bs-reveal-stagger bs-hero-strip-card">
-          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/62">Services</p>
-          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Recurring, Deep, Move-In, Move-Out & More</p>
+          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Services</p>
+          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Recurring, Deep, Move-In, Move-Out &amp; More</p>
         </div>
       </div>
     </div>
@@ -195,7 +195,7 @@ get_header(); ?>
   <section id="services" class="relative overflow-hidden border-y border-[var(--bs-border)] bg-white py-16 lg:py-20">
     <div class="absolute right-0 top-0 h-full w-full" style="background:var(--bs-services-glow)"></div>
     <div class="absolute left-[-80px] top-16 h-44 w-44 rotate-12 border border-[var(--bs-border)]"></div>
-    <div class="absolute bottom-[-60px] right-10 h-36 w-36 border border-[var(--bs-gold)]/20"></div>
+    <div class="absolute bottom-[-60px] right-10 h-36 w-36" style="border:1px solid var(--bs-gold-deco-border)"></div>
 
     <div class="relative mx-auto max-w-7xl px-4">
       <div class="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
@@ -208,9 +208,9 @@ get_header(); ?>
 
         <div class="grid gap-4 md:grid-cols-2">
           <?php foreach ($services as $service) : ?>
-            <a href="<?php echo esc_url($service['url']); ?>" class="bs-reveal-stagger block border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)] px-5 py-5 shadow-[var(--bs-shadow-point)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--bs-shadow-card)] hover:border-[rgba(79,180,231,0.28)]">
+            <a href="<?php echo esc_url($service['url']); ?>" class="bs-reveal-stagger bs-service-card-link block border border-[var(--bs-border)] px-5 py-5 shadow-[var(--bs-shadow-point)]">
               <div class="flex items-start gap-4">
-                <span class="mt-[7px] inline-block h-3 w-3 shrink-0 bg-[var(--bs-accent)]"></span>
+                <span class="mt-[7px] inline-block h-3 w-3 shrink-0 rounded-full" style="background:var(--bs-service-bullet)"></span>
                 <div>
                   <h3 class="text-xl font-semibold tracking-[-0.03em] text-[var(--bs-primary)]">
                     <?php echo esc_html($service['title']); ?>
@@ -218,7 +218,7 @@ get_header(); ?>
                   <p class="mt-3 text-base leading-8 text-[var(--bs-text-soft)]">
                     <?php echo esc_html($service['copy']); ?>
                   </p>
-                  <span class="mt-4 inline-flex text-sm font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
+                  <span class="mt-4 inline-flex text-sm font-black uppercase tracking-[0.14em] text-[var(--bs-primary)] transition group-hover:text-[var(--bs-gold)]">
                     Learn More
                   </span>
                 </div>
@@ -234,7 +234,7 @@ get_header(); ?>
   <section class="bg-[var(--bs-bg)] py-16 lg:py-20">
     <div class="mx-auto max-w-5xl px-4">
       <div class="bs-reveal-up overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-        <div class="border-b border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f3f7fa_100%)] px-6 py-6 md:px-8">
+        <div class="px-6 py-6 md:px-8" style="border-bottom:1px solid var(--bs-border); background:var(--bs-card-soft-bg)">
           <p class="text-xs font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
             Serving Otay Mesa
           </p>
@@ -246,7 +246,7 @@ get_header(); ?>
         <div class="px-6 py-6 md:px-8 md:py-8">
           <p class="text-base leading-8 text-[var(--bs-text-soft)]">
             Request your free, personalized quote today — or call us at
-            <a href="tel:+18582551498" class="font-semibold text-[var(--bs-primary)] underline decoration-[var(--bs-accent)] underline-offset-4">
+            <a href="tel:+18582551498" class="font-semibold text-[var(--bs-primary)] underline decoration-[var(--bs-gold)] underline-offset-4">
               (858) 255-1498
             </a>.
           </p>
@@ -285,8 +285,8 @@ get_header(); ?>
   <!-- NEARBY LOCATIONS -->
   <section class="relative overflow-hidden border-y border-[var(--bs-border)] bg-[var(--bs-bg)] py-16 lg:py-20">
     <div class="absolute inset-0" style="background:var(--bs-service-areas-glow)"></div>
-    <div class="absolute left-[-70px] top-10 h-40 w-40 rotate-12 border border-[var(--bs-border)]/80"></div>
-    <div class="absolute right-[-50px] bottom-10 h-32 w-32 rotate-12 border border-[var(--bs-gold)]/18"></div>
+    <div class="absolute left-[-70px] top-10 h-40 w-40 rotate-12" style="border:1px solid var(--bs-nearby-frame-border)"></div>
+    <div class="absolute right-[-50px] bottom-10 h-32 w-32 rotate-12" style="border:1px solid var(--bs-nearby-gold-frame-border)"></div>
 
     <div class="relative mx-auto max-w-7xl px-4">
       <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
@@ -323,7 +323,7 @@ get_header(); ?>
             <?php foreach ($nearby_locations as $area) : ?>
               <a
                 href="<?php echo esc_url($area['url']); ?>"
-                class="bs-reveal-stagger bs-location-card block border border-[var(--bs-border)] bg-white px-5 py-5 shadow-[var(--bs-shadow-point)]"
+                class="bs-reveal-stagger bs-location-card block border border-[var(--bs-border)] px-5 py-5 shadow-[var(--bs-shadow-point)]"
               >
                 <span class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
                   Location Page
@@ -349,17 +349,17 @@ get_header(); ?>
   </section>
 
   <!-- FINAL CTA -->
-  <section class="relative overflow-hidden border-t border-[var(--bs-border)] bg-[linear-gradient(180deg,#f7fbfd_0%,#eef6fb_100%)] py-20 lg:py-24">
+  <section class="relative overflow-hidden border-t border-[var(--bs-border)] py-20 lg:py-24" style="background:var(--bs-final-cta-bg)">
     <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-tl)"></div>
     <div class="absolute inset-0" style="background:var(--bs-cta-soft-glow-br)"></div>
-    <div class="absolute left-[-70px] top-10 h-36 w-36 rotate-12 border border-[var(--bs-border)]/80"></div>
-    <div class="absolute right-[-40px] bottom-8 h-28 w-28 rotate-12 border border-[var(--bs-gold)]/20"></div>
+    <div class="absolute left-[-70px] top-10 h-36 w-36 rotate-12" style="border:1px solid var(--bs-nearby-frame-border)"></div>
+    <div class="absolute right-[-40px] bottom-8 h-28 w-28 rotate-12" style="border:1px solid var(--bs-gold-deco-border)"></div>
 
     <div class="relative mx-auto max-w-7xl px-4">
       <div class="overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
         <div class="grid gap-10 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div class="bs-reveal-left">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">
+            <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-gold)]">
               Free Quote
             </p>
 
@@ -373,7 +373,7 @@ get_header(); ?>
 
             <p class="mt-5 text-sm font-semibold text-[var(--bs-text-soft)]">
               Prefer to call?
-              <a href="tel:+18582551498" class="text-[var(--bs-primary)] underline decoration-[var(--bs-accent)] underline-offset-4">
+              <a href="tel:+18582551498" class="text-[var(--bs-primary)] underline decoration-[var(--bs-gold)] underline-offset-4">
                 (858) 255-1498
               </a>
             </p>
@@ -389,88 +389,109 @@ get_header(); ?>
     </div>
   </section>
 
-
-
 </main>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
   :root {
-    /* Brand colors */
-    --bs-primary: #0b2538;
-    --bs-primary-2: #143a57;
-    --bs-primary-3: #1a4a6c;
-    --bs-accent: #4fb4e7;
-    --bs-accent-hover: #38a9df;
-    --bs-gold: #f4c542;
-    --bs-hero-overlay-main: linear-gradient(
+    --bs-primary:               #18364a;
+    --bs-primary-2:             #28495f;
+    --bs-primary-3:             #355d75;
+    --bs-accent:                #9ab3c7;
+    --bs-accent-hover:          #89a7be;
+    --bs-gold:                  #c9a13a;
+    --bs-gold-hover:            #b88f30;
+
+    --bs-bg:                    #f7f8f7;
+    --bs-surface:               #ffffff;
+    --bs-surface-soft:          #fcfbf8;
+    --bs-surface-2:             #eef3f5;
+    --bs-card-soft-bg:          linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+    --bs-final-cta-bg:          linear-gradient(180deg, #faf9f5 0%, #f1f3ef 100%);
+
+    --bs-text:                  #1c2831;
+    --bs-text-soft:             rgba(28, 40, 49, 0.78);
+    --bs-text-muted:            rgba(28, 40, 49, 0.56);
+    --bs-hero-text-soft:        rgba(255,255,255,0.84);
+
+    --bs-border:                rgba(24, 54, 74, 0.10);
+    --bs-border-hover-card:     rgba(154, 179, 199, 0.30);
+    --bs-gold-deco-border:      rgba(201, 161, 58, 0.20);
+    --bs-nearby-frame-border:   rgba(24, 54, 74, 0.08);
+    --bs-nearby-gold-frame-border: rgba(201, 161, 58, 0.18);
+
+    --bs-shadow-card:               0 28px 70px rgba(24, 54, 74, 0.08);
+    --bs-shadow-point:              0 12px 30px rgba(24, 54, 74, 0.04);
+    --bs-shadow-btn-primary:        0 18px 38px rgba(201, 161, 58, 0.22);
+    --bs-shadow-btn-primary-hover:  0 22px 44px rgba(201, 161, 58, 0.30);
+    --bs-shadow-btn-secondary:      0 18px 38px rgba(24, 54, 74, 0.18);
+    --bs-shadow-btn-secondary-hover:0 24px 48px rgba(24, 54, 74, 0.24);
+    --bs-shadow-btn-white-hover:    0 18px 40px rgba(24, 54, 74, 0.16);
+    --bs-footer-top-shadow:         0 30px 70px rgba(24, 54, 74, 0.08);
+
+    --bs-hero-overlay-main:     linear-gradient(
       90deg,
-      rgba(11,37,56,0.72) 0%,
-      rgba(11,37,56,0.62) 35%,
-      rgba(11,37,56,0.50) 68%,
-      rgba(11,37,56,0.42) 100%
+      rgba(20,39,51,0.72) 0%,
+      rgba(20,39,51,0.62) 35%,
+      rgba(20,39,51,0.50) 68%,
+      rgba(20,39,51,0.42) 100%
     );
-
-    --bs-hero-overlay-left: linear-gradient(
+    --bs-hero-overlay-left:     linear-gradient(
       90deg,
-      rgba(11,37,56,0.92) 0%,
-      rgba(11,37,56,0.86) 36%,
-      rgba(11,37,56,0.66) 68%,
-      rgba(11,37,56,0.00) 100%
+      rgba(20,39,51,0.92) 0%,
+      rgba(20,39,51,0.86) 36%,
+      rgba(20,39,51,0.66) 68%,
+      rgba(20,39,51,0.00) 100%
     );
+    --bs-hero-line-h:           linear-gradient(90deg, transparent, rgba(255,255,255,0.30), transparent);
+    --bs-hero-fade-b:           linear-gradient(180deg, transparent, rgba(20,39,51,0.28));
+    --bs-hero-frame-strong:     rgba(255,255,255,0.10);
+    --bs-hero-blob-accent:      rgba(154,179,199,0.14);
+    --bs-hero-blob-gold:        rgba(201,161,58,0.10);
+    --bs-hero-blob-soft:        rgba(255,255,255,0.06);
 
-    --bs-hero-line-h: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
-    --bs-hero-fade-b: linear-gradient(180deg, transparent, rgba(8,27,42,0.34));
+    --bs-hero-kicker-border:    rgba(201,161,58,0.36);
+    --bs-hero-kicker-bg:        rgba(255,255,255,0.08);
+    --bs-hero-kicker-text:      rgba(255,255,255,0.92);
+    --bs-hero-kicker-shadow:    0 10px 30px rgba(0,0,0,0.12);
 
-    /* Surfaces */
-    --bs-bg: #f6fafc;
-    --bs-surface: #ffffff;
-    --bs-surface-soft: #f8fbfd;
-    --bs-surface-cta-1: #f7fbfd;
-    --bs-surface-cta-2: #eef6fb;
+    --bs-hero-strip-border:     rgba(255,255,255,0.12);
+    --bs-hero-strip-bg:         rgba(255,255,255,0.09);
+    --bs-hero-strip-bg-hover:   rgba(255,255,255,0.13);
+    --bs-hero-strip-border-hover: rgba(255,255,255,0.18);
+    --bs-hero-strip-label:      rgba(255,255,255,0.62);
 
-    /* Text */
-    --bs-text: #162635;
-    --bs-text-soft: rgba(22, 38, 53, 0.78);
+    --bs-services-glow:         radial-gradient(circle at top right, rgba(154,179,199,0.10), transparent 22%);
+    --bs-service-areas-glow:    radial-gradient(circle at top left, rgba(154,179,199,0.08), transparent 24%);
+    --bs-img-fade-b:            linear-gradient(180deg, transparent, rgba(24,54,74,0.42));
+    --bs-cta-soft-glow-tl:      radial-gradient(circle at top left, rgba(154,179,199,0.12), transparent 28%);
+    --bs-cta-soft-glow-br:      radial-gradient(circle at bottom right, rgba(201,161,58,0.10), transparent 24%);
 
-    /* Borders */
-    --bs-border: rgba(11, 37, 56, 0.10);
+    --bs-outline-btn-bg:             rgba(255,255,255,0.08);
+    --bs-outline-btn-border:         rgba(154,179,199,0.34);
+    --bs-outline-btn-bg-hover:       rgba(154,179,199,0.18);
+    --bs-outline-btn-border-hover:   rgba(154,179,199,0.48);
+    --bs-secondary-ghost-bg:         rgba(255,255,255,0.75);
+    --bs-secondary-ghost-border:     rgba(24, 54, 74, 0.10);
+    --bs-secondary-ghost-border-hover: rgba(154,179,199,0.28);
 
-    /* Shadows */
-    --bs-shadow-card: 0 28px 70px rgba(11, 37, 56, 0.08);
-    --bs-shadow-point: 0 12px 30px rgba(11, 37, 56, 0.04);
-    --bs-shadow-btn-primary: 0 18px 38px rgba(79, 180, 231, 0.22);
-    --bs-shadow-btn-primary-hover: 0 22px 44px rgba(79, 180, 231, 0.28);
-    --bs-shadow-btn-secondary: 0 18px 38px rgba(11, 37, 56, 0.18);
-    --bs-shadow-btn-secondary-hover: 0 24px 48px rgba(11, 37, 56, 0.22);
-    --bs-shadow-btn-white-hover: 0 18px 40px rgba(255, 255, 255, 0.10);
-    --bs-footer-top-shadow: 0 30px 70px rgba(11, 37, 56, 0.08);
+    --bs-service-card-bg:       linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+    --bs-service-bullet:        linear-gradient(135deg, var(--bs-accent), var(--bs-gold));
+    --bs-location-card-bg:      linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
 
-    /* Decorative gradients */
-    --bs-hero-line-h: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
-    --bs-hero-fade-b: linear-gradient(180deg, transparent, rgba(8,27,42,0.42));
-    --bs-services-glow: radial-gradient(circle at top right, rgba(79,180,231,0.08), transparent 22%);
-    --bs-service-areas-glow: radial-gradient(circle at top left, rgba(79,180,231,0.08), transparent 24%);
-    --bs-img-fade-b: linear-gradient(180deg, transparent, rgba(11,37,56,0.46));
-    --bs-cta-soft-glow-tl: radial-gradient(circle at top left, rgba(79,180,231,0.12), transparent 28%);
-    --bs-cta-soft-glow-br: radial-gradient(circle at bottom right, rgba(244,197,66,0.10), transparent 24%);
-    --bs-footer-separator-line: linear-gradient(90deg, transparent 0%, rgba(11,37,56,0.10) 10%, rgba(79,180,231,0.55) 50%, rgba(11,37,56,0.10) 90%, transparent 100%);
-    --bs-footer-separator-glow: radial-gradient(circle at center, rgba(79,180,231,0.14) 0%, rgba(79,180,231,0.05) 32%, transparent 72%);
-
-    /* Motion / shape */
-    --bs-clip-btn: 14px;
-    --bs-duration-fast: 0.24s;
-    --bs-duration-base: 0.28s;
-    --bs-duration-reveal: 0.90s;
-    --bs-duration-zoom: 16s;
+    --bs-clip-btn:              14px;
+    --bs-duration-fast:         0.24s;
+    --bs-duration-base:         0.28s;
+    --bs-duration-reveal:       0.90s;
+    --bs-duration-zoom:         16s;
   }
 
   .bs-service-page {
     position: relative;
     font-family: "Inter", "Segoe UI", Arial, sans-serif;
     box-shadow: var(--bs-footer-top-shadow);
-    border-bottom: 1px solid rgba(11, 37, 56, 0.08);
+    border-bottom: 1px solid rgba(24, 54, 74, 0.08);
   }
 
   .bs-service-page h1,
@@ -497,9 +518,16 @@ get_header(); ?>
     will-change: transform;
   }
 
+  .bs-hero-kicker {
+    border: 1px solid var(--bs-hero-kicker-border);
+    background: var(--bs-hero-kicker-bg);
+    color: var(--bs-hero-kicker-text);
+    box-shadow: var(--bs-hero-kicker-shadow);
+  }
+
   .bs-hero-strip-card {
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.09);
+    border: 1px solid var(--bs-hero-strip-border);
+    background: var(--bs-hero-strip-bg);
     backdrop-filter: blur(10px);
     padding: 1.15rem 1.1rem;
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
@@ -508,14 +536,29 @@ get_header(); ?>
 
   .bs-hero-strip-card:hover {
     transform: translateY(-3px);
-    background: rgba(255,255,255,0.13);
-    border-color: rgba(255,255,255,0.18);
+    background: var(--bs-hero-strip-bg-hover);
+    border-color: var(--bs-hero-strip-border-hover);
+  }
+
+  .bs-service-card-link {
+    background: var(--bs-service-card-bg);
+    transition:
+      transform var(--bs-duration-base) ease,
+      box-shadow var(--bs-duration-base) ease,
+      border-color var(--bs-duration-base) ease,
+      background-color var(--bs-duration-base) ease;
+  }
+
+  .bs-service-card-link:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bs-shadow-card);
+    border-color: var(--bs-border-hover-card);
   }
 
   .bs-location-card {
     display: block;
     border: 1px solid var(--bs-border);
-    background: linear-gradient(180deg, var(--bs-surface) 0%, var(--bs-surface-soft) 100%);
+    background: var(--bs-location-card-bg);
     padding: 1.5rem;
     box-shadow: var(--bs-shadow-point);
     transition:
@@ -528,7 +571,7 @@ get_header(); ?>
   .bs-location-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--bs-shadow-card);
-    border-color: rgba(79, 180, 231, 0.28);
+    border-color: var(--bs-border-hover-card);
   }
 
   .bs-faq summary::-webkit-details-marker {
@@ -548,7 +591,7 @@ get_header(); ?>
     transform: translateY(-50%);
     font-size: 1.6rem;
     line-height: 1;
-    color: var(--bs-accent);
+    color: var(--bs-gold);
   }
 
   .bs-faq[open] summary::after {
@@ -597,15 +640,15 @@ get_header(); ?>
   .bs-btn:hover { transform: translateY(-2px); }
 
   .bs-btn-primary {
-    background: var(--bs-accent);
-    border-color: var(--bs-accent);
+    background: var(--bs-gold);
+    border-color: var(--bs-gold);
     box-shadow: var(--bs-shadow-btn-primary);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-primary:hover {
-    background: var(--bs-accent-hover);
-    border-color: var(--bs-accent-hover);
+    background: var(--bs-gold-hover);
+    border-color: var(--bs-gold-hover);
     box-shadow: var(--bs-shadow-btn-primary-hover);
   }
 
@@ -623,34 +666,35 @@ get_header(); ?>
   }
 
   .bs-btn-secondary-ghost {
-    background: rgba(255,255,255,0.75);
-    border-color: var(--bs-border);
+    background: var(--bs-secondary-ghost-bg);
+    border-color: var(--bs-secondary-ghost-border);
     box-shadow: var(--bs-shadow-point);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-secondary-ghost:hover {
     background: var(--bs-surface);
-    border-color: rgba(79,180,231,0.28);
+    border-color: var(--bs-secondary-ghost-border-hover);
     color: var(--bs-primary);
   }
 
   .bs-btn-outline-white {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.18);
+    background: var(--bs-outline-btn-bg);
+    border-color: var(--bs-outline-btn-border);
     backdrop-filter: blur(8px);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-outline-white:hover {
-    background: var(--bs-surface);
-    color: var(--bs-primary);
+    background: var(--bs-outline-btn-bg-hover);
+    border-color: var(--bs-outline-btn-border-hover);
+    color: white;
     box-shadow: var(--bs-shadow-btn-white-hover);
   }
 
   .bs-final-cta-shell {
     border: 1px solid var(--bs-border);
-    background: linear-gradient(180deg, var(--bs-surface) 0%, var(--bs-surface-soft) 100%);
+    background: var(--bs-card-soft-bg);
     padding: 1.25rem;
     box-shadow: var(--bs-shadow-card);
   }
@@ -679,30 +723,6 @@ get_header(); ?>
     transform: translate(0, 0);
   }
 
-  .bs-footer-separator {
-    position: relative;
-    height: 92px;
-    background: linear-gradient(180deg, rgba(246,250,252,0) 0%, rgba(234,244,250,0.72) 52%, rgba(246,250,252,0.22) 100%);
-    overflow: hidden;
-  }
-
-  .bs-footer-separator__line {
-    position: absolute;
-    left: 50%;
-    top: 26px;
-    width: min(1180px, calc(100% - 2rem));
-    height: 1px;
-    transform: translateX(-50%);
-    background: var(--bs-footer-separator-line);
-  }
-
-  .bs-footer-separator__glow {
-    position: absolute;
-    inset: 0;
-    background: var(--bs-footer-separator-glow);
-    pointer-events: none;
-  }
-
   @keyframes bsHeroZoom {
     0% { transform: scale(1.1); }
     100% { transform: scale(1); }
@@ -724,15 +744,6 @@ get_header(); ?>
     .bs-hero-strip-card {
       clip-path: none;
     }
-
-    .bs-footer-separator {
-      height: 72px;
-    }
-
-    .bs-footer-separator__line {
-      top: 20px;
-      width: calc(100% - 1.5rem);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -744,7 +755,8 @@ get_header(); ?>
     .bs-btn,
     .bs-parallax-soft,
     .bs-location-card,
-    .bs-hero-strip-card {
+    .bs-hero-strip-card,
+    .bs-service-card-link {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;

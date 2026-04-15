@@ -101,22 +101,25 @@ get_header(); ?>
   ?>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden border-b border-[var(--bs-border)] bg-[linear-gradient(135deg,var(--bs-primary)_0%,var(--bs-primary-2)_52%,#1c4f73_100%)] py-18 text-white lg:py-24">
+  <section class="relative overflow-hidden border-b border-[var(--bs-border)] py-18 text-white lg:py-24" style="background:var(--bs-hero-bg)">
     <div class="absolute inset-0">
-      <div class="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-[var(--bs-accent)]/20 blur-3xl"></div>
-      <div class="absolute right-[-120px] top-[10%] h-80 w-80 rounded-full bg-[var(--bs-gold)]/10 blur-3xl"></div>
-      <div class="absolute bottom-[-120px] left-[18%] h-72 w-72 rounded-full bg-white/6 blur-3xl"></div>
-      <div class="absolute inset-y-0 left-[8%] hidden w-px bg-white/10 lg:block"></div>
-      <div class="absolute inset-y-0 right-[12%] hidden w-px bg-white/8 lg:block"></div>
-      <div class="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)]"></div>
-      <div class="absolute right-[-70px] top-[-40px] h-44 w-44 rotate-[18deg] border border-white/10"></div>
-      <div class="absolute left-[-40px] bottom-[10%] h-32 w-32 rotate-[18deg] border border-white/8"></div>
+      <div class="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-accent)"></div>
+      <div class="absolute right-[-120px] top-[10%] h-80 w-80 rounded-full blur-3xl" style="background:var(--bs-hero-blob-gold)"></div>
+      <div class="absolute bottom-[-120px] left-[18%] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-soft)"></div>
+
+      <div class="absolute inset-y-0 left-[8%] hidden w-px lg:block" style="background:var(--bs-hero-line-v-left)"></div>
+      <div class="absolute inset-y-0 right-[12%] hidden w-px lg:block" style="background:var(--bs-hero-line-v-right)"></div>
+      <div class="absolute inset-x-0 top-0 h-px" style="background:var(--bs-hero-line-h)"></div>
+
+      <div class="absolute right-[-70px] top-[-40px] h-44 w-44 rotate-[18deg]" style="border:1px solid var(--bs-hero-frame-strong)"></div>
+      <div class="absolute left-[-40px] bottom-[10%] h-32 w-32 rotate-[18deg]" style="border:1px solid var(--bs-hero-frame-soft)"></div>
     </div>
 
     <div class="relative mx-auto max-w-7xl px-4">
       <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+
         <div class="bs-reveal-left">
-          <p class="inline-flex border border-white/16 bg-white/8 px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-white/88 backdrop-blur-sm">
+          <p class="bs-hero-kicker inline-flex px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] backdrop-blur-sm">
             Service Areas
           </p>
 
@@ -124,7 +127,7 @@ get_header(); ?>
             House Cleaning Across San Diego Neighborhoods
           </h1>
 
-          <p class="mt-6 max-w-2xl text-base leading-8 text-white/82 md:text-lg">
+          <p class="mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
             Explore the communities Brilliant Star proudly serves across San Diego. Find your neighborhood and visit its dedicated location page to learn more.
           </p>
 
@@ -140,28 +143,27 @@ get_header(); ?>
 
         <div class="bs-reveal-right">
           <div class="grid gap-4 sm:grid-cols-2">
-            <div class="border border-white/12 bg-white/10 p-6 shadow-[0_18px_44px_rgba(0,0,0,0.14)] backdrop-blur-sm">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/66">Coverage</p>
+            <div class="bs-hero-stat p-6">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-stat-label)]">Coverage</p>
               <p class="mt-2 text-2xl font-extrabold tracking-[-0.03em] text-white">13 Locations</p>
-              <p class="mt-3 text-sm leading-7 text-white/78">
+              <p class="mt-3 text-sm leading-7 text-[var(--bs-hero-stat-text)]">
                 Serving San Diego and surrounding neighborhoods with personalized residential cleaning.
               </p>
             </div>
 
-            <div class="border border-white/12 bg-white/10 p-6 shadow-[0_18px_44px_rgba(0,0,0,0.14)] backdrop-blur-sm">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/66">Trusted</p>
+            <div class="bs-hero-stat p-6">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-stat-label)]">Trusted</p>
               <p class="mt-2 text-2xl font-extrabold tracking-[-0.03em] text-white">15+ Years</p>
-              <p class="mt-3 text-sm leading-7 text-white/78">
+              <p class="mt-3 text-sm leading-7 text-[var(--bs-hero-stat-text)]">
                 Licensed, insured, and trusted by San Diego families for detail-focused cleaning.
               </p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
-
-
 
   <!-- INTRO -->
   <section class="bg-[var(--bs-bg)] pb-8 pt-24 lg:pb-10 lg:pt-28">
@@ -196,15 +198,15 @@ get_header(); ?>
                   style="filter:saturate(.92) contrast(1.02);"
                 ></iframe>
 
-                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(11,37,56,0.34)] to-transparent"></div>
+                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20" style="background:var(--bs-location-map-fade)"></div>
 
-                <div class="absolute left-4 top-4 border border-white/18 bg-[rgba(11,37,56,0.86)] px-4 py-2 backdrop-blur-sm">
+                <div class="absolute left-4 top-4 border px-4 py-2 backdrop-blur-sm" style="border-color:var(--bs-location-badge-border); background:var(--bs-location-badge-bg)">
                   <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
                     <?php echo esc_html($location['county']); ?> Area
                   </p>
                 </div>
 
-                <div class="absolute right-4 top-4 flex h-12 w-12 items-center justify-center border border-white/18 bg-white/90 text-lg font-light text-[var(--bs-primary)] shadow-[0_10px_30px_rgba(11,37,56,0.12)] transition duration-300 group-hover:scale-105">
+                <div class="absolute right-4 top-4 flex h-12 w-12 items-center justify-center border bg-[var(--bs-location-arrow-bg)] text-lg font-light text-[var(--bs-primary)] shadow-[var(--bs-location-arrow-shadow)] transition duration-300 group-hover:scale-105" style="border-color:var(--bs-location-arrow-border)">
                   ↗
                 </div>
               </div>
@@ -241,65 +243,95 @@ get_header(); ?>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
   :root {
-    --bs-primary:        #0b2538;
-    --bs-primary-2:      #143a57;
-    --bs-accent:         #4fb4e7;
-    --bs-accent-hover:   #38a9df;
-    --bs-gold:           #f4c542;
-    --bs-gold-hover:     #e5b82f;
+    /* Paleta */
+    --bs-primary:        #18364a;
+    --bs-primary-2:      #28495f;
+    --bs-accent:         #9ab3c7;
+    --bs-accent-hover:   #89a7be;
+    --bs-gold:           #c9a13a;
+    --bs-gold-hover:     #b88f30;
 
-    --bs-bg:             #f6fafc;
+    /* Fondos */
+    --bs-bg:             #f7f8f7;
     --bs-surface:        #ffffff;
-    --bs-surface-2:      #eef6fb;
+    --bs-surface-2:      #eef3f5;
+    --bs-surface-3:      #fcfbf8;
+    --bs-card-soft-bg:   linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+    --bs-trust-item-bg:  linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%);
 
-    --bs-text:           #162635;
-    --bs-text-soft:      rgba(22, 38, 53, 0.78);
-    --bs-text-muted:     rgba(22, 38, 53, 0.54);
+    /* Texto */
+    --bs-text:           #1c2831;
+    --bs-text-soft:      rgba(28, 40, 49, 0.78);
+    --bs-text-muted:     rgba(28, 40, 49, 0.56);
+    --bs-hero-text-soft: rgba(255, 255, 255, 0.84);
 
-    --bs-border:         rgba(11, 37, 56, 0.10);
+    /* Bordes */
+    --bs-border:                 rgba(24, 54, 74, 0.10);
+    --bs-border-hover-location:  rgba(154, 179, 199, 0.30);
 
-    --bs-shadow-card:            0 28px 70px rgba(11, 37, 56, 0.08);
-    --bs-shadow-trust:           0 22px 60px rgba(11, 37, 56, 0.08);
-    --bs-shadow-location:        0 18px 46px rgba(11, 37, 56, 0.06);
-    --bs-shadow-hover-location:  0 28px 60px rgba(11, 37, 56, 0.10);
-    --bs-shadow-service:         0 18px 46px rgba(11, 37, 56, 0.06);
+    /* Sombras */
+    --bs-shadow-card:            0 28px 70px rgba(24, 54, 74, 0.08);
+    --bs-shadow-location:        0 18px 46px rgba(24, 54, 74, 0.06);
+    --bs-shadow-hover-location:  0 28px 60px rgba(24, 54, 74, 0.10);
+    --bs-shadow-service:         0 18px 46px rgba(24, 54, 74, 0.06);
+    --bs-shadow-btn-primary:         0 18px 38px rgba(201, 161, 58, 0.22);
+    --bs-shadow-btn-primary-hover:   0 22px 44px rgba(201, 161, 58, 0.30);
+    --bs-shadow-btn-secondary:       0 18px 38px rgba(24, 54, 74, 0.18);
+    --bs-shadow-btn-secondary-hover: 0 24px 48px rgba(24, 54, 74, 0.24);
+    --bs-shadow-btn-white-hover:     0 18px 40px rgba(24, 54, 74, 0.16);
 
-    --bs-shadow-btn-primary:         0 18px 38px rgba(79, 180, 231, 0.22);
-    --bs-shadow-btn-primary-hover:   0 22px 44px rgba(79, 180, 231, 0.28);
-    --bs-shadow-btn-secondary:       0 18px 38px rgba(11, 37, 56, 0.18);
-    --bs-shadow-btn-secondary-hover: 0 24px 48px rgba(11, 37, 56, 0.22);
-    --bs-shadow-btn-white-hover:     0 18px 40px rgba(255, 255, 255, 0.10);
+    /* Hero */
+    --bs-hero-bg:                linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-primary-2) 52%, #355d75 100%);
+    --bs-hero-blob-accent:       rgba(154, 179, 199, 0.20);
+    --bs-hero-blob-gold:         rgba(201, 161, 58, 0.10);
+    --bs-hero-blob-soft:         rgba(255, 255, 255, 0.06);
+    --bs-hero-line-v-left:       rgba(255,255,255,0.10);
+    --bs-hero-line-v-right:      rgba(255,255,255,0.08);
+    --bs-hero-line-h:            linear-gradient(90deg, transparent, rgba(255,255,255,0.30), transparent);
+    --bs-hero-frame-strong:      rgba(255,255,255,0.10);
+    --bs-hero-frame-soft:        rgba(255,255,255,0.08);
 
-    --bs-border-hover-location: rgba(79, 180, 231, 0.28);
+    /* Hero kicker */
+    --bs-hero-kicker-border:     rgba(201,161,58,0.36);
+    --bs-hero-kicker-bg:         rgba(255,255,255,0.08);
+    --bs-hero-kicker-text:       rgba(255,255,255,0.92);
+    --bs-hero-kicker-shadow:     0 10px 30px rgba(0,0,0,0.12);
 
-    --bs-cta-soft-glow-tl: radial-gradient(circle at top left, rgba(79,180,231,0.12), transparent 28%);
-    --bs-cta-soft-glow-br: radial-gradient(circle at bottom right, rgba(244,197,66,0.10), transparent 24%);
---bs-footer-separator-line: linear-gradient(
-  90deg,
-  transparent 0%,
-  rgba(11,37,56,0.10) 10%,
-  rgba(79,180,231,0.55) 50%,
-  rgba(11,37,56,0.10) 90%,
-  transparent 100%
-);
+    /* Hero stats */
+    --bs-hero-stat-border:       rgba(255,255,255,0.12);
+    --bs-hero-stat-bg:           rgba(255,255,255,0.10);
+    --bs-hero-stat-bg-hover:     rgba(255,255,255,0.14);
+    --bs-hero-stat-border-hover: rgba(255,255,255,0.24);
+    --bs-hero-stat-label:        rgba(255,255,255,0.66);
+    --bs-hero-stat-text:         rgba(255,255,255,0.78);
+    --bs-hero-stat-shadow:       0 18px 44px rgba(0,0,0,0.14);
 
---bs-footer-separator-glow: radial-gradient(
-  circle at center,
-  rgba(79,180,231,0.14) 0%,
-  rgba(79,180,231,0.05) 32%,
-  transparent 72%
-);
-    --bs-clip-btn: 14px;
+    /* Location card */
+    --bs-location-map-fade:      linear-gradient(180deg, transparent, rgba(24,54,74,0.34));
+    --bs-location-badge-border:  rgba(255,255,255,0.18);
+    --bs-location-badge-bg:      rgba(24,54,74,0.86);
+    --bs-location-arrow-bg:      rgba(255,255,255,0.90);
+    --bs-location-arrow-border:  rgba(255,255,255,0.18);
+    --bs-location-arrow-shadow:  0 10px 30px rgba(24,54,74,0.12);
 
-    --bs-duration-fast:    0.24s;
-    --bs-duration-base:    0.28s;
-    --bs-duration-card:    0.30s;
-    --bs-duration-reveal:  0.90s;
-    --bs-duration-pulse:   2.8s;
-    --bs-trust-marquee-duration: 26s;
+    /* Outline button */
+    --bs-outline-btn-bg:             rgba(255,255,255,0.08);
+    --bs-outline-btn-border:         rgba(154,179,199,0.34);
+    --bs-outline-btn-bg-hover:       rgba(154,179,199,0.18);
+    --bs-outline-btn-border-hover:   rgba(154,179,199,0.48);
+
+    /* Shape + timing */
+    --bs-clip-btn:             14px;
+    --bs-duration-fast:        0.24s;
+    --bs-duration-base:        0.28s;
+    --bs-duration-card:        0.30s;
+    --bs-duration-reveal:      0.90s;
+    --bs-duration-pulse:       2.8s;
   }
 
-  .bs-locations-page { font-family: "Inter", "Segoe UI", Arial, sans-serif; }
+  .bs-locations-page {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  }
 
   .bs-locations-page h1,
   .bs-locations-page h2,
@@ -324,61 +356,29 @@ get_header(); ?>
     width: 13px;
     height: 13px;
     flex: 0 0 auto;
+    border-radius: 999px;
     animation: bsPulseDot var(--bs-duration-pulse) ease-in-out infinite;
   }
 
-  .bs-footer-separator {
-  position: relative;
-  height: 92px;
-  background:
-    linear-gradient(180deg, rgba(246,250,252,0) 0%, rgba(234,244,250,0.72) 52%, rgba(246,250,252,0.22) 100%);
-  overflow: hidden;
-}
-
-.bs-footer-separator__line {
-  position: absolute;
-  left: 50%;
-  top: 26px;
-  width: min(1180px, calc(100% - 2rem));
-  height: 1px;
-  transform: translateX(-50%);
-  background: var(--bs-footer-separator-line);
-}
-
-.bs-footer-separator__glow {
-  position: absolute;
-  inset: 0;
-  background: var(--bs-footer-separator-glow);
-  pointer-events: none;
-}
-
-  .bs-trust-marquee {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
+  .bs-hero-kicker {
+    border: 1px solid var(--bs-hero-kicker-border);
+    background: var(--bs-hero-kicker-bg);
+    color: var(--bs-hero-kicker-text);
+    box-shadow: var(--bs-hero-kicker-shadow);
   }
 
-  .bs-trust-track {
-    display: flex;
-    align-items: stretch;
-    width: max-content;
-    animation: bsTrustMarquee var(--bs-trust-marquee-duration) linear infinite;
-    will-change: transform;
+  .bs-hero-stat {
+    border: 1px solid var(--bs-hero-stat-border);
+    background: var(--bs-hero-stat-bg);
+    box-shadow: var(--bs-hero-stat-shadow);
+    backdrop-filter: blur(10px);
+    transition: transform var(--bs-duration-base) ease, border-color var(--bs-duration-base) ease, background-color var(--bs-duration-base) ease;
   }
 
-  .bs-trust-marquee:hover .bs-trust-track {
-    animation-play-state: paused;
-  }
-
-  .bs-trust-marquee-item {
-    flex: 0 0 auto;
-    min-width: 320px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.35rem 1.5rem;
-    border-right: 1px solid var(--bs-border);
-    background: #ffffff;
+  .bs-hero-stat:hover {
+    transform: translateY(-3px);
+    border-color: var(--bs-hero-stat-border-hover);
+    background: var(--bs-hero-stat-bg-hover);
   }
 
   .bs-location-hub-card {
@@ -438,15 +438,15 @@ get_header(); ?>
   .bs-btn:hover { transform: translateY(-2px); }
 
   .bs-btn-primary {
-    background: var(--bs-accent);
-    border-color: var(--bs-accent);
+    background: var(--bs-gold);
+    border-color: var(--bs-gold);
     box-shadow: var(--bs-shadow-btn-primary);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-primary:hover {
-    background: var(--bs-accent-hover);
-    border-color: var(--bs-accent-hover);
+    background: var(--bs-gold-hover);
+    border-color: var(--bs-gold-hover);
     box-shadow: var(--bs-shadow-btn-primary-hover);
   }
 
@@ -464,23 +464,17 @@ get_header(); ?>
   }
 
   .bs-btn-outline-white {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.18);
+    background: var(--bs-outline-btn-bg);
+    border-color: var(--bs-outline-btn-border);
     backdrop-filter: blur(8px);
     clip-path: polygon(0 0, calc(100% - var(--bs-clip-btn)) 0, 100% var(--bs-clip-btn), 100% 100%, var(--bs-clip-btn) 100%, 0 calc(100% - var(--bs-clip-btn)));
   }
 
   .bs-btn-outline-white:hover {
-    background: var(--bs-surface);
-    color: var(--bs-primary);
+    background: var(--bs-outline-btn-bg-hover);
+    border-color: var(--bs-outline-btn-border-hover);
+    color: white;
     box-shadow: var(--bs-shadow-btn-white-hover);
-  }
-
-  .bs-final-cta-shell {
-    border: 1px solid var(--bs-border);
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-    padding: 1.25rem;
-    box-shadow: var(--bs-shadow-service);
   }
 
   .bs-reveal-up,
@@ -512,25 +506,13 @@ get_header(); ?>
     50% { transform: scale(1.14); opacity: .8; }
   }
 
-  @keyframes bsTrustMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); }
-  }
-
   @media (max-width: 768px) {
     .bs-locations-page br { display: none; }
 
     .bs-btn-primary,
     .bs-btn-secondary,
-    .bs-btn-outline-white { clip-path: none; }
-
-    .bs-trust-marquee-item {
-      min-width: 260px;
-      padding: 1rem 1.1rem;
-    }
-
-    .bs-final-cta-shell {
-      padding: 1rem;
+    .bs-btn-outline-white {
+      clip-path: none;
     }
   }
 
@@ -541,17 +523,15 @@ get_header(); ?>
     .bs-reveal-stagger,
     .bs-btn,
     .bs-chip-icon,
-    .bs-trust-track,
     .bs-location-hub-card,
-    .bs-location-map {
+    .bs-location-map,
+    .bs-hero-stat {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
       animation: none !important;
     }
   }
-
-  
 </style>
 
 <script>

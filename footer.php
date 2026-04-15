@@ -3,30 +3,29 @@
         <div class="bs-shell">
             <div class="bs-footer__grid">
 
-               <div class="bs-footer__brand-col js-bs-footer-reveal">
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="bs-footer__brand" aria-label="Brilliant Star Cleaning Services Home">
-        <span class="bs-footer__brand-mark" aria-hidden="true"></span>
+                <div class="bs-footer__brand-col js-bs-footer-reveal">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="bs-footer__brand" aria-label="Brilliant Star Cleaning Services Home">
+                        <img
+                            src="http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/IMG_0001-Photoroom-e1776218222537.png"
+                            alt="Brilliant Star Cleaning Services"
+                            class="bs-footer__logo"
+                        >
+                    </a>
 
-        <span class="bs-footer__brand-text">
-            <strong>Brilliant Star</strong>
-            <em>Cleaning Services</em>
-        </span>
-    </a>
+                    <p class="bs-footer__tagline">
+                        San Diego's Trusted Residential Cleaning Experts — Serving Our Community Since 2009
+                    </p>
 
-    <p class="bs-footer__tagline">
-        San Diego's Trusted Residential Cleaning Experts — Serving Our Community Since 2009
-    </p>
+                    <p class="bs-footer__microcopy">
+                        Licensed, insured, and trusted by San Diego homeowners for over 15 years.
+                    </p>
 
-    <p class="bs-footer__microcopy">
-        Licensed, insured, and trusted by San Diego homeowners for over 15 years.
-    </p>
-
-    <div class="bs-footer__actions bs-footer__actions--minimal">
-        <a href="https://www.yelp.com/biz/brilliant-star-cleaning-san-diego" target="_blank" rel="noopener noreferrer" class="bs-footer__action bs-footer__action--ghost">
-            Read Yelp Reviews
-        </a>
-    </div>
-</div>
+                    <div class="bs-footer__actions bs-footer__actions--minimal">
+                        <a href="https://www.yelp.com/biz/brilliant-star-cleaning-san-diego" target="_blank" rel="noopener noreferrer" class="bs-footer__action bs-footer__action--ghost">
+                            Read Yelp Reviews
+                        </a>
+                    </div>
+                </div>
 
                 <div class="bs-footer__links-col js-bs-footer-reveal">
                     <h3 class="bs-footer__title">Quick Links</h3>
