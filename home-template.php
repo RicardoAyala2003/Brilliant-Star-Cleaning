@@ -11,8 +11,12 @@ get_header(); ?>
 <main class="bs-home overflow-hidden bg-[var(--bs-bg)] text-[var(--bs-text)]">
 
   <?php
-    $hero_image  = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1600&auto=format&fit=crop';
-    $about_image = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1200&auto=format&fit=crop';
+    $hero_images = [
+      'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/BrilliantStarHero3.jpg-scaled.jpeg',
+      'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/BrilliantStarHero1.jpg-scaled.jpeg',
+      'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/BrilliantStarHero2.jpg-scaled.jpeg',
+    ];
+    $about_image = 'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/VacumReplace.jpg-scaled.jpeg';
 
     $services = [
       [
@@ -98,7 +102,16 @@ get_header(); ?>
   <!-- HERO -->
   <section class="relative isolate overflow-hidden border-b border-[var(--bs-border)] bg-[var(--bs-primary)] text-white">
     <div class="absolute inset-0">
-      <img src="<?php echo esc_url($hero_image); ?>" alt="Professional residential cleaning service in San Diego" class="bs-hero-image h-full w-full object-cover">
+      <div class="absolute inset-0">
+        <?php foreach ($hero_images as $index => $image) : ?>
+          <img
+            src="<?php echo esc_url($image); ?>"
+            alt="Professional residential cleaning service in San Diego"
+            class="bs-hero-image bs-hero-slide absolute inset-0 h-full w-full object-cover <?php echo $index === 0 ? 'is-active' : ''; ?>"
+            data-hero-slide
+          >
+        <?php endforeach; ?>
+      </div>
       <div class="absolute inset-0" style="background:var(--bs-hero-overlay)"></div>
       <div class="absolute inset-0" style="background:var(--bs-hero-glow-tl)"></div>
       <div class="absolute inset-0" style="background:var(--bs-hero-glow-br)"></div>
@@ -885,6 +898,18 @@ get_header(); ?>
     }
   }
 
+  .bs-hero-slide {
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, transform 6s ease;
+    transform: scale(1.05);
+    will-change: opacity, transform;
+  }
+
+  .bs-hero-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .bs-reveal-up,
     .bs-reveal-left,
@@ -915,7 +940,7 @@ get_header(); ?>
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Brilliant Star Cleaning Services",
-  "image": "<?php echo esc_url($hero_image); ?>",
+  "image": "<?php echo esc_url($hero_images[0]); ?>",
   "telephone": "(858) 255-1498",
   "email": "brilliantstarcleaning@gmail.com",
   "address": {
@@ -1003,14 +1028,19 @@ get_header(); ?>
       });
     }
 
-    const heroImage = document.querySelector(".bs-hero-image");
+    const heroImages = document.querySelectorAll(".bs-hero-image");
     const parallaxItems = document.querySelectorAll(".bs-parallax-soft");
 
     const handleParallax = () => {
       const scrolled = window.scrollY || window.pageYOffset;
 
-      if (heroImage && scrolled < 900) {
-        heroImage.style.transform = `translateY(${scrolled * 0.08}px) scale(1.04)`;
+      if (heroImages.length && scrolled < 900) {
+        heroImages.forEach((heroImage) => {
+          const isActive = heroImage.classList.contains("is-active");
+          heroImage.style.transform = isActive
+            ? `translateY(${scrolled * 0.08}px) scale(1.04)`
+            : `scale(1.05)`;
+        });
       }
 
       parallaxItems.forEach((item) => {
@@ -1035,6 +1065,18 @@ get_header(); ?>
     }, { passive: true });
 
     handleParallax();
+
+    const heroSlides = document.querySelectorAll("[data-hero-slide]");
+    if (heroSlides.length > 1) {
+      let currentSlide = 0;
+
+      setInterval(() => {
+        heroSlides[currentSlide].classList.remove("is-active");
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        heroSlides[currentSlide].classList.add("is-active");
+        handleParallax();
+      }, 5000);
+    }
   });
 </script>
 

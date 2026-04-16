@@ -12,7 +12,7 @@ get_header(); ?>
 
   <?php
     // Images
-    $hero_image   = 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop';
+    $hero_image   = 'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/MoveInCleaning.jpg-scaled.jpeg';
     $detail_image = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1200&auto=format&fit=crop';
 
     // Included focus areas
