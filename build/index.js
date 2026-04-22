@@ -631,15 +631,17 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * ctahome.js - Componente React para el formulario de cotización
  *
- * Mejorado para:
- * - verse más compacto en hero y final CTA
- * - mantener todos los campos exigidos por el brief
- * - mostrar Move-Out notice de forma más clara
- * - colapsar campos opcionales para reducir altura visual
+ * Integrado con:
+ * - EmailJS (service: service_snkyupn, template: template_j8m3lzw)
+ * - Google reCAPTCHA v2
  */
 
 
 
+const EMAILJS_PUBLIC_KEY = 'lpZS7WWTixCYb0GSo';
+const EMAILJS_SERVICE_ID = 'service_snkyupn';
+const EMAILJS_TEMPLATE_ID = 'template_j8m3lzw';
+const RECAPTCHA_SITE_KEY = '6LegRcUsAAAAAOnFILz55nMWgx1mWfKLsjextJav';
 const INITIAL_FORM = {
   full_name: '',
   phone: '',
@@ -685,12 +687,80 @@ const CONTACT_METHOD_OPTIONS = [{
   value: 'email',
   label: 'Email'
 }];
+
+/* ─── Helpers ─── */
+
+const injectScript = (src, id) => {
+  if (document.getElementById(id)) return;
+  const s = document.createElement('script');
+  s.id = id;
+  s.src = src;
+  s.async = true;
+  s.defer = true;
+  document.head.appendChild(s);
+};
+const waitFor = (condition, interval = 100, timeout = 10000) => new Promise((resolve, reject) => {
+  const start = Date.now();
+  const id = setInterval(() => {
+    if (condition()) {
+      clearInterval(id);
+      resolve();
+    } else if (Date.now() - start > timeout) {
+      clearInterval(id);
+      reject();
+    }
+  }, interval);
+});
+
+/* ─── Component ─── */
+
 const CtaHome = () => {
   const [formData, setFormData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(INITIAL_FORM);
   const [isSubmitting, setIsSubmitting] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [submitMessage, setSubmitMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [showOptionalFields, setShowOptionalFields] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [submitSuccess, setSubmitSuccess] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [showOptionalFields, setShowOptional] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [captchaToken, setCaptchaToken] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [captchaError, setCaptchaError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const recaptchaRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // div container
+  const widgetIdRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // grecaptcha widget id
+  const emailjsReadyRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
   const showMoveOutNotice = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => formData.service === 'move-out', [formData.service]);
+
+  /* ── Load EmailJS ── */
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    injectScript('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js', 'emailjs-sdk');
+    waitFor(() => !!window.emailjs).then(() => {
+      if (!emailjsReadyRef.current) {
+        window.emailjs.init({
+          publicKey: EMAILJS_PUBLIC_KEY
+        });
+        emailjsReadyRef.current = true;
+      }
+    }).catch(() => console.error('EmailJS did not load in time'));
+  }, []);
+
+  /* ── Load reCAPTCHA with retry ── */
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    // Inject script without onload callback — we poll instead
+    injectScript('https://www.google.com/recaptcha/api.js?render=explicit', 'recaptcha-sdk');
+
+    // Wait until BOTH grecaptcha.render exists AND our container div is in the DOM
+    waitFor(() => window.grecaptcha && typeof window.grecaptcha.render === 'function' && recaptchaRef.current instanceof HTMLElement).then(() => {
+      if (widgetIdRef.current !== null) return; // already rendered
+      widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+        sitekey: RECAPTCHA_SITE_KEY,
+        callback: token => {
+          setCaptchaToken(token);
+          setCaptchaError(false);
+        },
+        'expired-callback': () => setCaptchaToken(''),
+        'error-callback': () => setCaptchaToken('')
+      });
+    }).catch(() => console.error('reCAPTCHA did not initialise in time'));
+  }, []);
+
+  /* ── Handlers ── */
   const handleChange = e => {
     const {
       name,
@@ -725,30 +795,48 @@ const CtaHome = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!validateForm()) return;
+    if (!captchaToken) {
+      setCaptchaError(true);
+      return;
+    }
     setIsSubmitting(true);
     setSubmitMessage('');
     try {
-      const response = await fetch('/wp-json/brilliantstar/v1/submit-quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      const result = await response.json();
-      if (response.ok) {
-        setSubmitMessage("Thank you! We'll contact you shortly.");
-        setFormData(INITIAL_FORM);
-        setShowOptionalFields(false);
-      } else {
-        setSubmitMessage('Error: ' + (result.message || 'Please try again'));
+      if (!window.emailjs) throw new Error('EmailJS not loaded');
+      const templateParams = {
+        full_name: formData.full_name,
+        phone: formData.phone,
+        email: formData.email,
+        service: SERVICE_OPTIONS.find(o => o.value === formData.service)?.label || formData.service,
+        bedrooms: formData.bedrooms,
+        bathrooms: formData.bathrooms,
+        last_cleaning: formData.last_cleaning || 'Not provided',
+        allergies: formData.allergies || 'None',
+        notes: formData.notes || 'None',
+        contact_method: formData.contact_method || 'No preference',
+        'g-recaptcha-response': captchaToken
+      };
+      await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+      setSubmitSuccess(true);
+      setSubmitMessage("Thank you! We'll contact you shortly.");
+      setFormData(INITIAL_FORM);
+      setShowOptional(false);
+      setCaptchaToken('');
+
+      // Reset reCAPTCHA widget
+      if (widgetIdRef.current !== null && window.grecaptcha) {
+        window.grecaptcha.reset(widgetIdRef.current);
       }
     } catch (error) {
-      setSubmitMessage('Error submitting form. Please try again.');
+      setSubmitSuccess(false);
+      setSubmitMessage('Error sending your message. Please try again or call us directly.');
+      console.error('EmailJS error:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  /* ── Render ── */
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "bs-form-shell overflow-hidden border border-white/10 bg-white text-[var(--bs-text)] shadow-[var(--bs-shadow-hero-form)]",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -822,10 +910,10 @@ const CtaHome = () => {
             onChange: handleChange,
             required: true,
             className: "bs-input w-full",
-            children: SERVICE_OPTIONS.map(option => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-              value: option.value,
-              children: option.label
-            }, option.value || 'empty'))
+            children: SERVICE_OPTIONS.map(o => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+              value: o.value,
+              children: o.label
+            }, o.value || 'empty'))
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
@@ -875,7 +963,7 @@ const CtaHome = () => {
         className: "overflow-hidden border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)]",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
           type: "button",
-          onClick: () => setShowOptionalFields(prev => !prev),
+          onClick: () => setShowOptional(prev => !prev),
           className: "flex w-full items-center justify-between gap-4 px-4 py-3 text-left transition hover:bg-[var(--bs-surface-2)]",
           "aria-expanded": showOptionalFields,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -915,10 +1003,10 @@ const CtaHome = () => {
                 value: formData.contact_method,
                 onChange: handleChange,
                 className: "bs-input w-full",
-                children: CONTACT_METHOD_OPTIONS.map(option => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-                  value: option.value,
-                  children: option.label
-                }, option.value || 'empty'))
+                children: CONTACT_METHOD_OPTIONS.map(o => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+                  value: o.value,
+                  children: o.label
+                }, o.value || 'empty'))
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -967,8 +1055,15 @@ const CtaHome = () => {
             children: "Terms & Conditions"
           }), ". *"]
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          ref: recaptchaRef
+        }), captchaError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "mt-2 text-xs text-red-600 font-semibold",
+          children: "Please complete the CAPTCHA verification before submitting."
+        })]
       }), submitMessage && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: `px-4 py-3 text-sm ${submitMessage.includes('Thank you') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`,
+        className: `px-4 py-3 text-sm font-medium ${submitSuccess ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`,
         children: submitMessage
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "grid gap-3",
@@ -976,7 +1071,7 @@ const CtaHome = () => {
           type: "submit",
           disabled: isSubmitting,
           className: "bs-btn bs-btn-primary inline-flex min-h-[56px] items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white disabled:cursor-not-allowed disabled:opacity-50",
-          children: isSubmitting ? 'Sending...' : 'Request My Free Quote'
+          children: isSubmitting ? 'Sending…' : 'Request My Free Quote'
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
           className: "text-center text-xs leading-6 text-[var(--bs-text-soft)]",
           children: ["Prefer to call?", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {

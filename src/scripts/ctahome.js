@@ -1,60 +1,135 @@
 /**
  * ctahome.js - Componente React para el formulario de cotización
  *
- * Mejorado para:
- * - verse más compacto en hero y final CTA
- * - mantener todos los campos exigidos por el brief
- * - mostrar Move-Out notice de forma más clara
- * - colapsar campos opcionales para reducir altura visual
+ * Integrado con:
+ * - EmailJS (service: service_snkyupn, template: template_j8m3lzw)
+ * - Google reCAPTCHA v2
  */
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+
+const EMAILJS_PUBLIC_KEY  = 'lpZS7WWTixCYb0GSo';
+const EMAILJS_SERVICE_ID  = 'service_snkyupn';
+const EMAILJS_TEMPLATE_ID = 'template_j8m3lzw';
+const RECAPTCHA_SITE_KEY  = '6LegRcUsAAAAAOnFILz55nMWgx1mWfKLsjextJav';
 
 const INITIAL_FORM = {
-    full_name: '',
-    phone: '',
-    email: '',
-    service: '',
-    bedrooms: '',
-    bathrooms: '',
-    last_cleaning: '',
-    allergies: '',
-    notes: '',
+    full_name:      '',
+    phone:          '',
+    email:          '',
+    service:        '',
+    bedrooms:       '',
+    bathrooms:      '',
+    last_cleaning:  '',
+    allergies:      '',
+    notes:          '',
     contact_method: '',
-    agree_terms: false
+    agree_terms:    false
 };
 
 const SERVICE_OPTIONS = [
-    { value: '', label: 'Select a service' },
-    { value: 'regular', label: 'Regular Cleaning' },
-    { value: 'deep', label: 'Deep Cleaning' },
-    { value: 'move-out', label: 'Move-Out Cleaning' },
-    { value: 'move-in', label: 'Move-In Cleaning' },
+    { value: '',                 label: 'Select a service' },
+    { value: 'regular',          label: 'Regular Cleaning' },
+    { value: 'deep',             label: 'Deep Cleaning' },
+    { value: 'move-out',         label: 'Move-Out Cleaning' },
+    { value: 'move-in',          label: 'Move-In Cleaning' },
     { value: 'post-construction', label: 'Post-Construction Clean-Up' },
-    { value: 'specialty', label: 'Specialty / Other' }
+    { value: 'specialty',        label: 'Specialty / Other' }
 ];
 
 const CONTACT_METHOD_OPTIONS = [
-    { value: '', label: 'Choose one' },
+    { value: '',      label: 'Choose one' },
     { value: 'phone', label: 'Phone' },
     { value: 'email', label: 'Email' }
 ];
 
+/* ─── Helpers ─── */
+
+const injectScript = (src, id) => {
+    if (document.getElementById(id)) return;
+    const s = document.createElement('script');
+    s.id    = id;
+    s.src   = src;
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+};
+
+const waitFor = (condition, interval = 100, timeout = 10000) =>
+    new Promise((resolve, reject) => {
+        const start = Date.now();
+        const id = setInterval(() => {
+            if (condition()) { clearInterval(id); resolve(); }
+            else if (Date.now() - start > timeout) { clearInterval(id); reject(); }
+        }, interval);
+    });
+
+/* ─── Component ─── */
+
 const CtaHome = () => {
-    const [formData, setFormData] = useState(INITIAL_FORM);
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitMessage, setSubmitMessage] = useState('');
-    const [showOptionalFields, setShowOptionalFields] = useState(false);
+    const [formData, setFormData]               = useState(INITIAL_FORM);
+    const [isSubmitting, setIsSubmitting]       = useState(false);
+    const [submitMessage, setSubmitMessage]     = useState('');
+    const [submitSuccess, setSubmitSuccess]     = useState(false);
+    const [showOptionalFields, setShowOptional] = useState(false);
+    const [captchaToken, setCaptchaToken]       = useState('');
+    const [captchaError, setCaptchaError]       = useState(false);
+
+    const recaptchaRef     = useRef(null);  // div container
+    const widgetIdRef      = useRef(null);  // grecaptcha widget id
+    const emailjsReadyRef  = useRef(false);
 
     const showMoveOutNotice = useMemo(
         () => formData.service === 'move-out',
         [formData.service]
     );
 
+    /* ── Load EmailJS ── */
+    useEffect(() => {
+        injectScript(
+            'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js',
+            'emailjs-sdk'
+        );
+        waitFor(() => !!window.emailjs)
+            .then(() => {
+                if (!emailjsReadyRef.current) {
+                    window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+                    emailjsReadyRef.current = true;
+                }
+            })
+            .catch(() => console.error('EmailJS did not load in time'));
+    }, []);
+
+    /* ── Load reCAPTCHA with retry ── */
+    useEffect(() => {
+        // Inject script without onload callback — we poll instead
+        injectScript(
+            'https://www.google.com/recaptcha/api.js?render=explicit',
+            'recaptcha-sdk'
+        );
+
+        // Wait until BOTH grecaptcha.render exists AND our container div is in the DOM
+        waitFor(() =>
+            window.grecaptcha &&
+            typeof window.grecaptcha.render === 'function' &&
+            recaptchaRef.current instanceof HTMLElement
+        )
+        .then(() => {
+            if (widgetIdRef.current !== null) return; // already rendered
+            widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+                sitekey:            RECAPTCHA_SITE_KEY,
+                callback:           (token) => { setCaptchaToken(token); setCaptchaError(false); },
+                'expired-callback': () => setCaptchaToken(''),
+                'error-callback':   () => setCaptchaToken('')
+            });
+        })
+        .catch(() => console.error('reCAPTCHA did not initialise in time'));
+    }, []);
+
+    /* ── Handlers ── */
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-
-        setFormData((prev) => ({
+        setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
@@ -62,25 +137,21 @@ const CtaHome = () => {
 
     const validateForm = () => {
         const required = ['full_name', 'phone', 'email', 'service', 'bedrooms', 'bathrooms'];
-
         for (const field of required) {
             if (!String(formData[field] || '').trim()) {
                 alert(`Please fill in ${field.replace('_', ' ')}`);
                 return false;
             }
         }
-
         if (!formData.agree_terms) {
             alert('Please agree to the Privacy Policy and Terms & Conditions');
             return false;
         }
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
             alert('Please enter a valid email address');
             return false;
         }
-
         return true;
     };
 
@@ -89,53 +160,80 @@ const CtaHome = () => {
 
         if (!validateForm()) return;
 
+        if (!captchaToken) {
+            setCaptchaError(true);
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitMessage('');
 
         try {
-            const response = await fetch('/wp-json/brilliantstar/v1/submit-quote', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
+            if (!window.emailjs) throw new Error('EmailJS not loaded');
 
-            const result = await response.json();
+            const templateParams = {
+                full_name:      formData.full_name,
+                phone:          formData.phone,
+                email:          formData.email,
+                service:        SERVICE_OPTIONS.find(o => o.value === formData.service)?.label || formData.service,
+                bedrooms:       formData.bedrooms,
+                bathrooms:      formData.bathrooms,
+                last_cleaning:  formData.last_cleaning  || 'Not provided',
+                allergies:      formData.allergies       || 'None',
+                notes:          formData.notes           || 'None',
+                contact_method: formData.contact_method  || 'No preference',
+                'g-recaptcha-response': captchaToken
+            };
 
-            if (response.ok) {
-                setSubmitMessage("Thank you! We'll contact you shortly.");
-                setFormData(INITIAL_FORM);
-                setShowOptionalFields(false);
-            } else {
-                setSubmitMessage('Error: ' + (result.message || 'Please try again'));
+            await window.emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                templateParams
+            );
+
+            setSubmitSuccess(true);
+            setSubmitMessage("Thank you! We'll contact you shortly.");
+            setFormData(INITIAL_FORM);
+            setShowOptional(false);
+            setCaptchaToken('');
+
+            // Reset reCAPTCHA widget
+            if (widgetIdRef.current !== null && window.grecaptcha) {
+                window.grecaptcha.reset(widgetIdRef.current);
             }
+
         } catch (error) {
-            setSubmitMessage('Error submitting form. Please try again.');
+            setSubmitSuccess(false);
+            setSubmitMessage('Error sending your message. Please try again or call us directly.');
+            console.error('EmailJS error:', error);
         } finally {
             setIsSubmitting(false);
         }
     };
 
+    /* ── Render ── */
     return (
         <div className="bs-form-shell overflow-hidden border border-white/10 bg-white text-[var(--bs-text)] shadow-[var(--bs-shadow-hero-form)]">
+
+            {/* Header */}
             <div className="relative border-b border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f3f7fa_100%)] px-5 py-5 md:px-6">
                 <div className="absolute inset-y-0 left-0 w-1 bg-[var(--bs-accent)]"></div>
 
                 <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
                     Request a Quote
                 </p>
-
                 <h2 className="mt-2 text-[1.45rem] font-semibold leading-tight tracking-[-0.03em] text-[var(--bs-primary)] md:text-2xl">
                     Get a Free, Personalized Cleaning Quote
                 </h2>
-
                 <p className="mt-2 text-sm leading-6 text-[var(--bs-text-soft)]">
                     Tell us about your home and we&apos;ll follow up with a clear, honest estimate.
                 </p>
             </div>
 
+            {/* Form */}
             <form onSubmit={handleSubmit} className="grid gap-4 px-5 py-5 md:px-6 md:py-6">
+
+                {/* Name + Phone */}
                 <div className="grid gap-4 md:grid-cols-2">
                     <div>
                         <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
@@ -151,7 +249,6 @@ const CtaHome = () => {
                             placeholder="Your full name"
                         />
                     </div>
-
                     <div>
                         <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                             Phone Number *
@@ -168,6 +265,7 @@ const CtaHome = () => {
                     </div>
                 </div>
 
+                {/* Email */}
                 <div>
                     <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                         Email Address *
@@ -183,6 +281,7 @@ const CtaHome = () => {
                     />
                 </div>
 
+                {/* Service / Bedrooms / Bathrooms */}
                 <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
                     <div>
                         <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
@@ -195,14 +294,11 @@ const CtaHome = () => {
                             required
                             className="bs-input w-full"
                         >
-                            {SERVICE_OPTIONS.map((option) => (
-                                <option key={option.value || 'empty'} value={option.value}>
-                                    {option.label}
-                                </option>
+                            {SERVICE_OPTIONS.map(o => (
+                                <option key={o.value || 'empty'} value={o.value}>{o.label}</option>
                             ))}
                         </select>
                     </div>
-
                     <div>
                         <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                             Bedrooms *
@@ -217,7 +313,6 @@ const CtaHome = () => {
                             placeholder="3"
                         />
                     </div>
-
                     <div>
                         <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                             Bathrooms *
@@ -234,6 +329,7 @@ const CtaHome = () => {
                     </div>
                 </div>
 
+                {/* Move-Out Notice */}
                 {showMoveOutNotice && (
                     <div className="overflow-hidden border border-[var(--bs-gold)]/35 bg-[linear-gradient(180deg,rgba(244,197,66,0.16)_0%,rgba(244,197,66,0.08)_100%)] px-4 py-3">
                         <div className="flex items-start gap-3">
@@ -252,10 +348,11 @@ const CtaHome = () => {
                     </div>
                 )}
 
+                {/* Optional Fields Accordion */}
                 <div className="overflow-hidden border border-[var(--bs-border)] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfd_100%)]">
                     <button
                         type="button"
-                        onClick={() => setShowOptionalFields((prev) => !prev)}
+                        onClick={() => setShowOptional(prev => !prev)}
                         className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left transition hover:bg-[var(--bs-surface-2)]"
                         aria-expanded={showOptionalFields}
                     >
@@ -288,7 +385,6 @@ const CtaHome = () => {
                                         placeholder="Approximate date"
                                     />
                                 </div>
-
                                 <div>
                                     <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                                         Preferred Contact Method
@@ -299,15 +395,12 @@ const CtaHome = () => {
                                         onChange={handleChange}
                                         className="bs-input w-full"
                                     >
-                                        {CONTACT_METHOD_OPTIONS.map((option) => (
-                                            <option key={option.value || 'empty'} value={option.value}>
-                                                {option.label}
-                                            </option>
+                                        {CONTACT_METHOD_OPTIONS.map(o => (
+                                            <option key={o.value || 'empty'} value={o.value}>{o.label}</option>
                                         ))}
                                     </select>
                                 </div>
                             </div>
-
                             <div>
                                 <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                                     Allergies or Chemical Preferences
@@ -321,7 +414,6 @@ const CtaHome = () => {
                                     placeholder="No bleach, fragrance-free, eco-friendly, client will provide"
                                 />
                             </div>
-
                             <div>
                                 <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.14em] text-[var(--bs-primary)]">
                                     Special Requests or Additional Notes
@@ -339,6 +431,7 @@ const CtaHome = () => {
                     )}
                 </div>
 
+                {/* Terms */}
                 <label className="flex items-start gap-3 border border-[var(--bs-border)] bg-[var(--bs-surface-2)] px-4 py-3 text-sm leading-6 text-[var(--bs-text-soft)]">
                     <input
                         type="checkbox"
@@ -350,36 +443,43 @@ const CtaHome = () => {
                     />
                     <span>
                         I agree to the{' '}
-                        <a href="/privacy-policy/" className="font-bold text-[var(--bs-primary)] underline">
-                            Privacy Policy
-                        </a>{' '}
+                        <a href="/privacy-policy/" className="font-bold text-[var(--bs-primary)] underline">Privacy Policy</a>{' '}
                         and{' '}
-                        <a href="/terms-and-conditions/" className="font-bold text-[var(--bs-primary)] underline">
-                            Terms &amp; Conditions
-                        </a>
-                        . *
+                        <a href="/terms-and-conditions/" className="font-bold text-[var(--bs-primary)] underline">Terms &amp; Conditions</a>. *
                     </span>
                 </label>
 
+                {/* reCAPTCHA */}
+                <div>
+                    <div ref={recaptchaRef}></div>
+                    {captchaError && (
+                        <p className="mt-2 text-xs text-red-600 font-semibold">
+                            Please complete the CAPTCHA verification before submitting.
+                        </p>
+                    )}
+                </div>
+
+                {/* Submit feedback */}
                 {submitMessage && (
                     <div
-                        className={`px-4 py-3 text-sm ${
-                            submitMessage.includes('Thank you')
-                                ? 'bg-green-100 text-green-800'
-                                : 'bg-red-100 text-red-800'
+                        className={`px-4 py-3 text-sm font-medium ${
+                            submitSuccess
+                                ? 'bg-green-50 text-green-800 border border-green-200'
+                                : 'bg-red-50 text-red-800 border border-red-200'
                         }`}
                     >
                         {submitMessage}
                     </div>
                 )}
 
+                {/* CTA */}
                 <div className="grid gap-3">
                     <button
                         type="submit"
                         disabled={isSubmitting}
                         className="bs-btn bs-btn-primary inline-flex min-h-[56px] items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                        {isSubmitting ? 'Sending...' : 'Request My Free Quote'}
+                        {isSubmitting ? 'Sending…' : 'Request My Free Quote'}
                     </button>
 
                     <p className="text-center text-xs leading-6 text-[var(--bs-text-soft)]">
