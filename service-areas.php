@@ -95,7 +95,8 @@ get_header(); ?>
     foreach ($locations as &$location) {
       $query = rawurlencode($location['name'] . ', San Diego, CA');
       $location['map_embed'] = 'https://www.google.com/maps?q=' . $query . '&output=embed';
-      $location['link'] = '/locations/' . $location['slug'] . '/';
+      $location['map_link']  = 'https://www.google.com/maps?q=' . $query;
+      $location['link']      = '/locations/' . $location['slug'] . '/';
     }
     unset($location);
   ?>
@@ -186,51 +187,54 @@ get_header(); ?>
       <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         <?php foreach ($locations as $location) : ?>
           <article class="bs-reveal-stagger bs-location-hub-card group overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-            <a href="<?php echo esc_url($location['link']); ?>" class="block">
-              <div class="relative overflow-hidden border-b border-[var(--bs-border)] bg-[var(--bs-surface-2)]">
-                <iframe
-                  src="<?php echo esc_url($location['map_embed']); ?>"
-                  loading="lazy"
-                  allowfullscreen
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Map of <?php echo esc_attr($location['name']); ?> service area"
-                  class="bs-location-map h-[240px] w-full md:h-[250px]"
-                  style="filter:saturate(.92) contrast(1.02);"
-                ></iframe>
+            <div class="relative overflow-hidden border-b border-[var(--bs-border)] bg-[var(--bs-surface-2)]">
+              <iframe
+                src="<?php echo esc_url($location['map_embed']); ?>"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Map of <?php echo esc_attr($location['name']); ?> service area"
+                class="bs-location-map h-[240px] w-full md:h-[250px]"
+                style="filter:saturate(.92) contrast(1.02);"
+              ></iframe>
 
-                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20" style="background:var(--bs-location-map-fade)"></div>
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20" style="background:var(--bs-location-map-fade)"></div>
 
-                <div class="absolute left-4 top-4 border px-4 py-2 backdrop-blur-sm" style="border-color:var(--bs-location-badge-border); background:var(--bs-location-badge-bg)">
-                  <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
-                    <?php echo esc_html($location['county']); ?> Area
-                  </p>
-                </div>
-
-                <div class="absolute right-4 top-4 flex h-12 w-12 items-center justify-center border bg-[var(--bs-location-arrow-bg)] text-lg font-light text-[var(--bs-primary)] shadow-[var(--bs-location-arrow-shadow)] transition duration-300 group-hover:scale-105" style="border-color:var(--bs-location-arrow-border)">
-                  ↗
-                </div>
+              <div class="absolute left-4 top-4 border px-4 py-2 backdrop-blur-sm" style="border-color:var(--bs-location-badge-border); background:var(--bs-location-badge-bg)">
+                <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">
+                  <?php echo esc_html($location['county']); ?> Area
+                </p>
               </div>
 
-              <div class="p-6">
-                <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">
-                  Location
-                </p>
-
-                <h3 class="mt-3 text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--bs-primary)]">
-                  <?php echo esc_html($location['name']); ?>
-                </h3>
-
-                <p class="mt-5 text-base leading-8 text-[var(--bs-text-soft)]">
-                  <?php echo esc_html($location['copy']); ?>
-                </p>
-
-                <div class="mt-7">
-                  <span class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-                    View Location Page
-                  </span>
-                </div>
+              <div class="absolute right-4 top-4 flex h-12 w-12 items-center justify-center border bg-[var(--bs-location-arrow-bg)] text-lg font-light text-[var(--bs-primary)] shadow-[var(--bs-location-arrow-shadow)] transition duration-300 group-hover:scale-105" style="border-color:var(--bs-location-arrow-border)">
+                ↗
               </div>
-            </a>
+            </div>
+
+            <div class="p-6">
+              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-text-muted)]">
+                Location
+              </p>
+
+              <h3 class="mt-3 text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--bs-primary)]">
+                <?php echo esc_html($location['name']); ?>
+              </h3>
+
+              <p class="mt-5 text-base leading-8 text-[var(--bs-text-soft)]">
+                <?php echo esc_html($location['copy']); ?>
+              </p>
+
+              <div class="mt-7">
+                <a
+                  href="<?php echo esc_url($location['map_link']); ?>"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white"
+                >
+                  View Location Page
+                </a>
+              </div>
+            </div>
           </article>
         <?php endforeach; ?>
       </div>

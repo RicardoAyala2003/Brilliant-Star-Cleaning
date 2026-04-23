@@ -48,12 +48,12 @@ get_header(); ?>
     ];
 
     $nearby_locations = [
-      ['name' => 'San Diego', 'url' => '/locations/san-diego/'],
-      ['name' => 'North Park', 'url' => '/locations/north-park/'],
-      ['name' => 'Mission Hills', 'url' => '/locations/mission-hills/'],
-      ['name' => 'University Heights', 'url' => '/locations/university-heights/'],
-      ['name' => 'South Park', 'url' => '/locations/south-park/'],
-      ['name' => 'Mission Valley', 'url' => '/locations/mission-valley/'],
+      ['name' => 'San Diego', 'url' => '/service-areas/san-diego/'],
+      ['name' => 'North Park', 'url' => '/service-areas/north-park/'],
+      ['name' => 'Mission Hills', 'url' => '/service-areas/mission-hills/'],
+      ['name' => 'University Heights', 'url' => '/service-areas/university-heights/'],
+      ['name' => 'South Park', 'url' => '/service-areas/south-park/'],
+      ['name' => 'Mission Valley', 'url' => '/service-areas/mission-valley/'],
     ];
 
     $faq_items = [
@@ -305,7 +305,7 @@ get_header(); ?>
           </div>
 
           <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href="/locations/" class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
+            <a href="/service-areas/" class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
               Explore All Service Areas
             </a>
             <a href="/contact-us/" class="bs-btn bs-btn-secondary-ghost inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-[var(--bs-primary)]">
@@ -866,7 +866,7 @@ get_header(); ?>
       ],
       [
         '@type' => 'Service',
-        '@id' => home_url('/locations/hillcrest/') . '#location-service',
+        '@id' => home_url('/service-areas/hillcrest/') . '#location-service',
         'name' => 'House Cleaning Services in Hillcrest, San Diego',
         'description' => 'Professional residential cleaning services in Hillcrest, San Diego. Trusted for 15+ years. Deep cleaning, move-out, regular cleaning and more.',
         'provider' => [
@@ -877,7 +877,7 @@ get_header(); ?>
           '@type' => 'Place',
           'name' => 'Hillcrest, San Diego'
         ],
-        'url' => home_url('/locations/hillcrest/')
+        'url' => home_url('/service-areas/hillcrest/')
       ]
     ]
   ];
