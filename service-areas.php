@@ -11,6 +11,8 @@ get_header(); ?>
 <main class="bs-locations-page overflow-hidden bg-[var(--bs-bg)] text-[var(--bs-text)]">
 
   <?php
+    $hero_image = '/wp-content/uploads/2026/04/Imagen1.jpg-scaled.jpeg';
+
     $locations = [
       [
         'name'   => 'San Diego',
@@ -102,8 +104,15 @@ get_header(); ?>
   ?>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden border-b border-[var(--bs-border)] py-18 text-white lg:py-24" style="background:var(--bs-hero-bg)">
+  <section class="relative overflow-hidden border-b border-[var(--bs-border)] py-18 text-white lg:py-24">
     <div class="absolute inset-0">
+      <img
+        src="<?php echo esc_url($hero_image); ?>"
+        alt="Brilliant Star Cleaning service areas"
+        class="h-full w-full object-cover"
+      />
+      <div class="absolute inset-0" style="background:var(--bs-hero-overlay)"></div>
+
       <div class="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-accent)"></div>
       <div class="absolute right-[-120px] top-[10%] h-80 w-80 rounded-full blur-3xl" style="background:var(--bs-hero-blob-gold)"></div>
       <div class="absolute bottom-[-120px] left-[18%] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-soft)"></div>
@@ -285,7 +294,7 @@ get_header(); ?>
     --bs-shadow-btn-white-hover:     0 18px 40px rgba(24, 54, 74, 0.16);
 
     /* Hero */
-    --bs-hero-bg:                linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-primary-2) 52%, #355d75 100%);
+    --bs-hero-overlay:           linear-gradient(135deg, rgba(24, 54, 74, 0.80) 0%, rgba(40, 73, 95, 0.76) 52%, rgba(53, 93, 117, 0.72) 100%);
     --bs-hero-blob-accent:       rgba(154, 179, 199, 0.20);
     --bs-hero-blob-gold:         rgba(201, 161, 58, 0.10);
     --bs-hero-blob-soft:         rgba(255, 255, 255, 0.06);
