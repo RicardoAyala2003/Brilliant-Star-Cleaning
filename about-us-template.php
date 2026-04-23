@@ -16,17 +16,17 @@ get_header(); ?>
     $detail_image = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1200&auto=format&fit=crop';
 
     $about_paragraphs = [
-      'Brilliant Star Cleaning Services was built on a simple belief: every San Diego home deserves to be cleaned by people who truly care. For over 15 years, that belief has guided everything we do — from the products we choose to the way we train our team and communicate with our clients.',
-      'We\'re not a franchise or a national chain. We\'re a local San Diego cleaning company — and that makes all the difference. Every member of our team is a San Diego local, carefully selected for their experience, professionalism, and commitment to quality. We invest in our people because they\'re the ones showing up to your home.',
-      'We use commercial-grade vacuums and professional cleaning supplies matched to your home\'s specific surfaces — hardwood, tile, ceramic, stone countertops, and stainless steel appliances. We don\'t cut corners, and we don\'t rush. We do the job right, every time.',
-      'Have a newborn at home? Allergies? Specific preferences about cleaning products? We work around your household\'s needs — just communicate them to us when you book, and we\'ll take care of the rest.',
-      'Brilliant Star is fully licensed in San Diego and insured, so you can welcome us into your home with complete peace of mind. We\'ve earned the trust of San Diego families for over 15 years — and we don\'t take that lightly.',
+      'Brilliant Star Cleaning Services was built on a simple belief: every San Diego home deserves to be cleaned by people who truly care. For over 15 years, that belief has guided everything we do from the products we choose to the way we train our team and communicate with our clients.',
+      'We\'re not a franchise or a national chain. We\'re a local San Diego cleaning company and that makes all the difference. Every member of our team is a San Diego local, carefully selected for their experience, professionalism, and commitment to quality. We invest in our people because they\'re the ones showing up to your home.',
+      'We use commercial-grade vacuums and professional cleaning supplies matched to your home\'s specific surfaces hardwood, tile, ceramic, stone countertops, and stainless steel appliances. We don\'t cut corners, and we don\'t rush. We do the job right, every time.',
+      'Have a newborn at home? Allergies? Specific preferences about cleaning products? We work around your household\'s needs just communicate them to us when you book, and we\'ll take care of the rest.',
+      'Brilliant Star is fully licensed in San Diego and insured, so you can welcome us into your home with complete peace of mind. We\'ve earned the trust of San Diego families for over 15 years and we don\'t take that lightly.',
     ];
 
     $highlights = [
       [
         'eyebrow' => 'Local Team',
-        'title'   => 'A San Diego cleaning company — not a franchise.',
+        'title'   => 'A San Diego cleaning company not a franchise.',
         'copy'    => 'Every member of our team is a San Diego local, selected for experience, professionalism, and commitment to quality.',
       ],
       [
@@ -87,7 +87,7 @@ get_header(); ?>
             </h1>
 
             <p class="mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-              Meet the Brilliant Star team — San Diego's trusted home cleaning experts for 15+ years. Licensed, insured, and committed to exceptional results in every home we serve.
+              Meet the Brilliant Star team San Diego's trusted home cleaning experts for 15+ years. Licensed, insured, and committed to exceptional results in every home we serve.
             </p>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -246,9 +246,9 @@ get_header(); ?>
             We do the job right, every time
           </h2>
           <div class="mt-7 space-y-5 text-base leading-8 text-[var(--bs-text-soft)]">
-            <p>We use commercial-grade vacuums and professional cleaning supplies matched to your home's specific surfaces — hardwood, tile, ceramic, stone countertops, and stainless steel appliances.</p>
+            <p>We use commercial-grade vacuums and professional cleaning supplies matched to your home's specific surfaces hardwood, tile, ceramic, stone countertops, and stainless steel appliances.</p>
             <p>We don't cut corners, and we don't rush. We do the job right, every time.</p>
-            <p>Have a newborn at home? Allergies? Specific preferences about cleaning products? We work around your household's needs — just communicate them to us when you book, and we'll take care of the rest.</p>
+            <p>Have a newborn at home? Allergies? Specific preferences about cleaning products? We work around your household's needs just communicate them to us when you book, and we'll take care of the rest.</p>
           </div>
         </div>
 
@@ -288,7 +288,7 @@ get_header(); ?>
               <span class="text-[var(--bs-gold)]">★★★★★</span>
             </div>
             <p class="text-base leading-8 text-[var(--bs-text-soft)]"><?php echo esc_html($review['copy']); ?></p>
-            <p class="mt-5 text-xs font-black uppercase tracking-[0.16em] text-[var(--bs-primary)]">— Yelp Reviewer</p>
+            <p class="mt-5 text-xs font-black uppercase tracking-[0.16em] text-[var(--bs-primary)]">Yelp Reviewer</p>
           </article>
         <?php endforeach; ?>
       </div>
@@ -320,7 +320,7 @@ get_header(); ?>
             </h2>
 
             <p class="mt-5 max-w-2xl text-base leading-8 text-[var(--bs-text-soft)]">
-              Tell us about your home and we’ll provide a clear, personalized cleaning quote — no pressure, no surprises.
+              Tell us about your home and we’ll provide a clear, personalized cleaning quote no pressure, no surprises.
             </p>
           </div>
 

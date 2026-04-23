@@ -50,7 +50,7 @@ get_header(); ?>
             </h1>
 
             <p class="mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-              Every home is different — and so is every quote. Fill out the form below and we'll follow up to discuss your needs and put together a transparent, personalized estimate. No pressure and no hidden fees — just honest pricing for exceptional cleaning.
+              Every home is different and so is every quote. Fill out the form below and we'll follow up to discuss your needs and put together a transparent, personalized estimate. No pressure and no hidden fees just honest pricing for exceptional cleaning.
             </p>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
