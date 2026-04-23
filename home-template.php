@@ -12,11 +12,11 @@ get_header(); ?>
 
   <?php
     $hero_images = [
-      'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/BrilliantStarHero3.jpg-scaled.jpeg',
-      'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/BrilliantStarHero1.jpg-scaled.jpeg',
-      'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/BrilliantStarHero2.jpg-scaled.jpeg',
+      '/wp-content/uploads/2026/04/BrilliantStarHero3.jpg-scaled.jpeg',
+      '/wp-content/uploads/2026/04/BrilliantStarHero1.jpg-scaled.jpeg',
+      '/wp-content/uploads/2026/04/BrilliantStarHero2.jpg-scaled.jpeg',
     ];
-    $about_image = 'http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/VacumReplace.jpg-scaled.jpeg';
+    $about_image = '/wp-content/uploads/2026/04/VacumReplace.jpg-scaled.jpeg';
 
     $services = [
       [

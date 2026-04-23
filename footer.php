@@ -6,7 +6,7 @@
                 <div class="bs-footer__brand-col js-bs-footer-reveal">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="bs-footer__brand" aria-label="Brilliant Star Cleaning Services Home">
                         <img
-                            src="http://brilliant-star-cleaning.local/wp-content/uploads/2026/04/IMG_0001-Photoroom-e1776218222537.png"
+                            src="/wp-content/uploads/2026/04/IMG_0001-Photoroom-e1776218222537.png"
                             alt="Brilliant Star Cleaning Services"
                             class="bs-footer__logo"
                         >
