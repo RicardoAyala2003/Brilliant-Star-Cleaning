@@ -25,13 +25,13 @@
                         <span>(858) 255-1498</span>
                     </a>
 
-                    <a href="mailto:brilliantstarcleaning@gmail.com" class="bs-topbar__chip bs-topbar__chip--muted">
+                    <a href="mailto:info@brilliantstarcleaningservices.com" class="bs-topbar__chip bs-topbar__chip--muted">
                         <span class="bs-topbar__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M4 5h16a2 2 0 0 1 2 2v.35l-10 6.25L2 7.35V7a2 2 0 0 1 2-2Zm18 4.72V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.72l9.47 5.92a1 1 0 0 0 1.06 0L22 9.72Z"/>
                             </svg>
                         </span>
-                        <span>brilliantstarcleaning@gmail.com</span>
+                        <span>info@brilliantstarcleaningservices.com</span>
                     </a>
                 </div>
 

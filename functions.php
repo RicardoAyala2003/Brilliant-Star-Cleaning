@@ -37,7 +37,7 @@ add_action('rest_api_init', function () {
 function brilliantstar_submit_quote($request) {
     $data = $request->get_json_params();
     
-    $to = 'brilliantstarcleaning@gmail.com';
+    $to = 'info@brilliantstarcleaningservices.com';
     $subject = 'New Quote Request from ' . $data['full_name'];
     $message = "Name: " . $data['full_name'] . "\n";
     $message .= "Phone: " . $data['phone'] . "\n";

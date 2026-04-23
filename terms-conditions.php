@@ -107,7 +107,7 @@ get_header(); ?>
               <p class="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--bs-accent)]">Questions About These Terms?</p>
               <p class="mt-3 text-base leading-8 text-[var(--bs-text-soft)]">
                 You can contact Brilliant Star Cleaning Services directly at
-                <a href="mailto:brilliantstarcleaning@gmail.com" class="font-bold text-[var(--bs-primary)] hover:text-[var(--bs-accent)]">brilliantstarcleaning@gmail.com</a>
+                <a href="mailto:info@brilliantstarcleaningservices.com" class="font-bold text-[var(--bs-primary)] hover:text-[var(--bs-accent)]">info@brilliantstarcleaningservices.com</a>
                 or call
                 <a href="tel:+18582551498" class="font-bold text-[var(--bs-primary)] hover:text-[var(--bs-accent)]">(858) 255-1498</a>.
               </p>
@@ -206,7 +206,7 @@ get_header(); ?>
 
                 <div class="bs-legal-contact-card">
                   <p><strong>Brilliant Star Cleaning Co LLC</strong></p>
-                  <p>Email: <a href="mailto:brilliantstarcleaning@gmail.com">brilliantstarcleaning@gmail.com</a></p>
+                  <p>Email: <a href="mailto:info@brilliantstarcleaningservices.com">info@brilliantstarcleaningservices.com</a></p>
                   <p>Phone: <a href="tel:+18582551498">(858) 255-1498</a></p>
                   <p>Service Area: San Diego and surrounding neighborhoods</p>
                 </div>

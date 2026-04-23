@@ -65,7 +65,7 @@
                         <li class="bs-footer__contact-item">
                             <span class="bs-footer__contact-bullet" aria-hidden="true"></span>
                             <div class="bs-footer__contact-block">
-                                <a href="mailto:brilliantstarcleaning@gmail.com" class="bs-footer__contact-link">brilliantstarcleaning@gmail.com</a>
+                                <a href="mailto:info@brilliantstarcleaningservices.com" class="bs-footer__contact-link">info@brilliantstarcleaningservices.com</a>
                             </div>
                         </li>
 

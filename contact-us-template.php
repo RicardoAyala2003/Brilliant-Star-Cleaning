@@ -165,8 +165,8 @@ get_header(); ?>
 
                 <div>
                   <p class="text-[11px] font-black uppercase tracking-[0.16em] text-[var(--bs-text-muted)]">Email</p>
-                  <a href="mailto:brilliantstarcleaning@gmail.com" class="mt-2 inline-block break-all text-base font-extrabold tracking-[-0.02em] text-[var(--bs-primary)] transition hover:text-[var(--bs-gold)]">
-                    brilliantstarcleaning@gmail.com
+                  <a href="mailto:info@brilliantstarcleaningservices.com" class="mt-2 inline-block break-all text-base font-extrabold tracking-[-0.02em] text-[var(--bs-primary)] transition hover:text-[var(--bs-gold)]">
+                    info@brilliantstarcleaningservices.com
                   </a>
                 </div>
 

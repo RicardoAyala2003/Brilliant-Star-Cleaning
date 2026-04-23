@@ -859,7 +859,7 @@ get_header(); ?>
         'name' => 'Brilliant Star Cleaning Services',
         'url' => home_url('/'),
         'telephone' => '+1-858-255-1498',
-        'email' => 'brilliantstarcleaning@gmail.com',
+        'email' => 'info@brilliantstarcleaningservices.com',
         'priceRange' => '$$',
         'areaServed' => [
           'San Diego',

@@ -156,7 +156,7 @@ get_header(); ?>
               </div>
               <div class="bs-contact-panel border border-white/12 bg-white/10 px-5 py-4 backdrop-blur-sm">
                 <p class="text-[10px] font-black uppercase tracking-[0.18em] text-white/66">Email</p>
-                <a href="mailto:brilliantstarcleaning@gmail.com" class="mt-2 block break-all text-base font-extrabold tracking-[-0.02em] text-white transition hover:text-[var(--bs-gold)]">brilliantstarcleaning@gmail.com</a>
+                <a href="mailto:info@brilliantstarcleaningservices.com" class="mt-2 block break-all text-base font-extrabold tracking-[-0.02em] text-white transition hover:text-[var(--bs-gold)]">info@brilliantstarcleaningservices.com</a>
               </div>
             </div>
           </div>
@@ -942,7 +942,7 @@ get_header(); ?>
   "name": "Brilliant Star Cleaning Services",
   "image": "<?php echo esc_url($hero_images[0]); ?>",
   "telephone": "(858) 255-1498",
-  "email": "brilliantstarcleaning@gmail.com",
+  "email": "info@brilliantstarcleaningservices.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "San Diego",
