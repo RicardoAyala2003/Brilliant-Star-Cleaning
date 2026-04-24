@@ -33,7 +33,7 @@ get_header(); ?>
       ],
       [
         'q' => 'How is my quote determined?',
-        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition — then give you a straightforward estimate. No surprises, ever.'
+        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition then give you a straightforward estimate. No surprises, ever.'
       ],
       [
         'q' => 'What areas do you focus on for move-in cleaning?',
@@ -41,7 +41,7 @@ get_header(); ?>
       ],
       [
         'q' => 'Do you bring your own cleaning supplies?',
-        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type — hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
+        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
       ],
     ];
 
@@ -85,11 +85,11 @@ get_header(); ?>
         </p>
 
         <h1 class="bs-reveal-up mt-6 max-w-[13ch] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
-          Move-In Cleaning Services in San Diego — Start Fresh
+          Move-In Cleaning Services in San Diego Start Fresh
         </h1>
 
         <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-          Before the boxes arrive and life gets busy, give your new home the deep clean it deserves. Our move-in cleaning service details and disinfects every surface — so when you walk through the door for the first time as a homeowner or new tenant, it truly feels like yours.
+          Before the boxes arrive and life gets busy, give your new home the deep clean it deserves. Our move-in cleaning service details and disinfects every surface so when you walk through the door for the first time as a homeowner or new tenant, it truly feels like yours.
         </p>
 
         <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
@@ -326,7 +326,7 @@ get_header(); ?>
               We proudly provide professional house cleaning services across San Diego and the surrounding communities, including Hillcrest, North Park, South Park, Mission Hills, Del Mar, Mira Mesa, Kearny Mesa, Mission Valley, Mission Beach, Ocean Beach, University Heights, and Otay Mesa.
             </p>
             <p>
-              Don’t see your neighborhood listed? Reach out — we may still be able to help.
+              Don’t see your neighborhood listed? Reach out we may still be able to help.
             </p>
           </div>
 

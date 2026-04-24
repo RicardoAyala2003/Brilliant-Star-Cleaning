@@ -36,15 +36,15 @@ get_header(); ?>
       ],
       [
         'q' => 'How is my quote determined?',
-        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition — then give you a straightforward estimate. No surprises, ever.'
+        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition then give you a straightforward estimate. No surprises, ever.'
       ],
       [
         'q' => 'Do you require the home to be empty for move-out cleanings?',
-        'a' => 'Yes — for move-out cleanings, we ask that the property be vacant and all drawers and cabinets be empty. This allows our team to do a thorough, complete job.'
+        'a' => 'Yes for move-out cleanings, we ask that the property be vacant and all drawers and cabinets be empty. This allows our team to do a thorough, complete job.'
       ],
       [
         'q' => 'Do you bring your own cleaning supplies?',
-        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type — hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
+        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
       ],
     ];
 
@@ -88,11 +88,11 @@ get_header(); ?>
         </p>
 
         <h1 class="bs-reveal-up mt-6 max-w-[14ch] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
-          Move-Out Cleaning in San Diego — Leave It Spotless, Get Your Deposit Back
+          Move-Out Cleaning in San Diego Leave It Spotless, Get Your Deposit Back
         </h1>
 
         <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-          Moving out is already stressful. The cleaning shouldn&apos;t be. Our move-out cleaning service is thorough, efficient, and designed to leave your home in immaculate condition — so you can hand over the keys with confidence and move on to the next chapter.
+          Moving out is already stressful. The cleaning shouldn&apos;t be. Our move-out cleaning service is thorough, efficient, and designed to leave your home in immaculate condition so you can hand over the keys with confidence and move on to the next chapter.
         </p>
 
         <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
@@ -147,13 +147,13 @@ get_header(); ?>
 
           <div class="mt-7 space-y-5 text-base leading-8 text-[var(--bs-text-soft)]">
             <p>
-              Our move-out cleaning service is built to leave your home in immaculate condition — so you can hand over the keys with confidence and move on to the next chapter.
+              Our move-out cleaning service is built to leave your home in immaculate condition so you can hand over the keys with confidence and move on to the next chapter.
             </p>
             <p>
               We cover the details that matter most at move-out: hard water, mold, appliances, cabinets, baseboards, vents, visible stains, and full surface wipe-downs throughout the home.
             </p>
             <p>
-              Not sure what&apos;s included or what your home needs? Give us a call — we&apos;ll ask a few quick questions and put together a quote that fits your move-out timeline.
+              Not sure what&apos;s included or what your home needs? Give us a call we&apos;ll ask a few quick questions and put together a quote that fits your move-out timeline.
             </p>
           </div>
 
@@ -329,7 +329,7 @@ get_header(); ?>
               We proudly provide professional house cleaning services across San Diego and the surrounding communities, including Hillcrest, North Park, South Park, Mission Hills, Del Mar, Mira Mesa, Kearny Mesa, Mission Valley, Mission Beach, Ocean Beach, University Heights, and Otay Mesa.
             </p>
             <p>
-              Don’t see your neighborhood listed? Reach out — we may still be able to help.
+              Don’t see your neighborhood listed? Reach out we may still be able to help.
             </p>
           </div>
 
@@ -393,7 +393,7 @@ get_header(); ?>
             </h2>
 
             <p class="mt-5 max-w-2xl text-base leading-8 text-[var(--bs-text-soft)]">
-              Not sure what&apos;s included or what your home needs? Give us a call — we&apos;ll ask a few quick questions and put together a quote that fits your move-out timeline.
+              Not sure what&apos;s included or what your home needs? Give us a call we&apos;ll ask a few quick questions and put together a quote that fits your move-out timeline.
             </p>
 
             <p class="mt-5 text-sm font-semibold text-[var(--bs-text-soft)]">

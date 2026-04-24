@@ -33,7 +33,7 @@ get_header(); ?>
       ],
       [
         'q' => 'How is my quote determined?',
-        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition — then give you a straightforward estimate. No surprises, ever.'
+        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition then give you a straightforward estimate. No surprises, ever.'
       ],
       [
         'q' => 'What kind of projects is post-construction cleaning for?',
@@ -41,7 +41,7 @@ get_header(); ?>
       ],
       [
         'q' => 'Do you bring your own cleaning supplies?',
-        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type — hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
+        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
       ],
     ];
 
@@ -85,11 +85,11 @@ get_header(); ?>
         </p>
 
         <h1 class="bs-reveal-up mt-6 max-w-[14ch] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
-          Post-Construction Cleaning in San Diego — After the Renovation, We Handle the Rest
+          Post-Construction Cleaning in San Diego After the Renovation, We Handle the Rest
         </h1>
 
         <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-          Remodeling your home is exciting. What&apos;s not exciting is the dust, debris, and residue that lingers on every surface afterward. Our post-construction cleaning service is built for exactly this — getting your space from construction-site condition to truly livable, as quickly and thoroughly as possible.
+          Remodeling your home is exciting. What&apos;s not exciting is the dust, debris, and residue that lingers on every surface afterward. Our post-construction cleaning service is built for exactly this getting your space from construction-site condition to truly livable, as quickly and thoroughly as possible.
         </p>
 
         <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
@@ -144,7 +144,7 @@ get_header(); ?>
 
           <div class="mt-7 space-y-5 text-base leading-8 text-[var(--bs-text-soft)]">
             <p>
-              Remodeling your home is exciting — but the cleanup afterward can be overwhelming. Our post-construction cleaning service is built to remove the dust, debris, and residue that renovation projects leave behind.
+              Remodeling your home is exciting but the cleanup afterward can be overwhelming. Our post-construction cleaning service is built to remove the dust, debris, and residue that renovation projects leave behind.
             </p>
             <p>
               We specialize in cleaning after small to mid-size residential renovation projects. From drywall dust on every surface to paint splatters and construction debris, we come equipped and experienced to handle it all.
@@ -326,7 +326,7 @@ get_header(); ?>
               We proudly provide professional house cleaning services across San Diego and the surrounding communities, including Hillcrest, North Park, South Park, Mission Hills, Del Mar, Mira Mesa, Kearny Mesa, Mission Valley, Mission Beach, Ocean Beach, University Heights, and Otay Mesa.
             </p>
             <p>
-              Don’t see your neighborhood listed? Reach out — we may still be able to help.
+              Don’t see your neighborhood listed? Reach out we may still be able to help.
             </p>
           </div>
 

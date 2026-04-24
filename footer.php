@@ -13,7 +13,7 @@
                     </a>
 
                     <p class="bs-footer__tagline">
-                        San Diego's Trusted Residential Cleaning Experts — Serving Our Community Since 2009
+                        San Diego's Trusted Residential Cleaning Experts Serving Our Community Since 2009
                     </p>
 
                     <p class="bs-footer__microcopy">

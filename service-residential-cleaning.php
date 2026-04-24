@@ -37,15 +37,15 @@ get_header(); ?>
       ],
       [
         'q' => 'How is my quote determined?',
-        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition — then give you a straightforward estimate. No surprises, ever.'
+        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition then give you a straightforward estimate. No surprises, ever.'
       ],
       [
         'q' => 'What’s the difference between regular cleaning and deep cleaning?',
-        'a' => 'Our regular cleaning covers all the essentials: dusting, vacuuming, mopping, kitchen surfaces, and bathrooms. Deep cleaning goes further — inside the fridge and oven, window seals, ceiling fans, and outdoor areas like patios and balconies.'
+        'a' => 'Our regular cleaning covers all the essentials: dusting, vacuuming, mopping, kitchen surfaces, and bathrooms. Deep cleaning goes further inside the fridge and oven, window seals, ceiling fans, and outdoor areas like patios and balconies.'
       ],
       [
         'q' => 'Do you bring your own cleaning supplies?',
-        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type — hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
+        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
       ],
     ];
 
@@ -93,7 +93,7 @@ get_header(); ?>
         </h1>
 
         <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-          A consistently clean home shouldn't come at the cost of your time and energy. Our residential cleaning service is designed for busy San Diego households that want to stay on top of it — without the effort. Whether you prefer cleaning every week or every two weeks, we show up on time, work efficiently, and leave your home looking exactly how it should.
+          A consistently clean home shouldn't come at the cost of your time and energy. Our residential cleaning service is designed for busy San Diego households that want to stay on top of it without the effort. Whether you prefer cleaning every week or every two weeks, we show up on time, work efficiently, and leave your home looking exactly how it should.
         </p>
 
         <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
@@ -148,13 +148,13 @@ get_header(); ?>
 
           <div class="mt-7 space-y-5 text-base leading-8 text-[var(--bs-text-soft)]">
             <p>
-              At Brilliant Star Cleaning Services, we believe your home deserves more than just a surface clean. For over 15 years, our experienced San Diego team has been delivering exceptional residential cleaning — with the kind of attention to detail that makes a real difference.
+              At Brilliant Star Cleaning Services, we believe your home deserves more than just a surface clean. For over 15 years, our experienced San Diego team has been delivering exceptional residential cleaning with the kind of attention to detail that makes a real difference.
             </p>
             <p>
               We arrive prepared with commercial-grade vacuums and professional cleaning products suited for every surface in your home: hardwood floors, tile, ceramic, stone countertops, and stainless steel appliances. Whatever your home needs, we come ready.
             </p>
             <p>
-              Have allergies, a newborn, or specific preferences about cleaning products? Just tell us — we adapt to your household and make it work for you.
+              Have allergies, a newborn, or specific preferences about cleaning products? Just tell us we adapt to your household and make it work for you.
             </p>
           </div>
 
@@ -330,7 +330,7 @@ get_header(); ?>
               We proudly provide professional house cleaning services across San Diego and the surrounding communities, including Hillcrest, North Park, South Park, Mission Hills, Del Mar, Mira Mesa, Kearny Mesa, Mission Valley, Mission Beach, Ocean Beach, University Heights, and Otay Mesa.
             </p>
             <p>
-              Don’t see your neighborhood listed? Reach out — we may still be able to help.
+              Don’t see your neighborhood listed? Reach out we may still be able to help.
             </p>
           </div>
 
@@ -394,7 +394,7 @@ get_header(); ?>
             </h2>
 
             <p class="mt-5 max-w-2xl text-base leading-8 text-[var(--bs-text-soft)]">
-              When you choose Brilliant Star, you're choosing a team that shows up on time, pays attention to every detail, and genuinely cares about the result. Let us take cleaning off your plate — so you can enjoy your home the way it was meant to be enjoyed.
+              When you choose Brilliant Star, you're choosing a team that shows up on time, pays attention to every detail, and genuinely cares about the result. Let us take cleaning off your plate so you can enjoy your home the way it was meant to be enjoyed.
             </p>
 
             <p class="mt-5 text-sm font-semibold text-[var(--bs-text-soft)]">
