@@ -18,6 +18,7 @@ get_header(); ?>
     $about_paragraphs = [
       'Brilliant Star Cleaning Services was built on a simple belief: every San Diego home deserves to be cleaned by people who truly care. For over 15 years, that belief has guided everything we do from the products we choose to the way we train our team and communicate with our clients.',
       'We\'re not a franchise or a national chain. We\'re a local San Diego cleaning company and that makes all the difference. Every member of our team is a San Diego local, carefully selected for their experience, professionalism, and commitment to quality. We invest in our people because they\'re the ones showing up to your home.',
+      'We take punctuality and professionalism seriously, because we understand that inviting someone into your home requires trust. Our team always arrives on time, works with care and respect for your space and belongings, and treats every home as if it were our own. You can count on us to be responsible, discreet, and professional on every visit.',
       'We use commercial-grade vacuums and professional cleaning supplies matched to your home\'s specific surfaces hardwood, tile, ceramic, stone countertops, and stainless steel appliances. We don\'t cut corners, and we don\'t rush. We do the job right, every time.',
       'Have a newborn at home? Allergies? Specific preferences about cleaning products? We work around your household\'s needs just communicate them to us when you book, and we\'ll take care of the rest.',
       'Brilliant Star is fully licensed in San Diego and insured, so you can welcome us into your home with complete peace of mind. We\'ve earned the trust of San Diego families for over 15 years and we don\'t take that lightly.',
@@ -160,44 +161,86 @@ get_header(); ?>
     </div>
   </section>
 
-  <!-- STORY / MAIN CONTENT -->
-  <section class="bg-[var(--bs-bg)] pb-20 pt-24 lg:pb-24 lg:pt-28">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+ <!-- STORY / MAIN CONTENT -->
+<section class="bg-[var(--bs-bg)] pb-20 pt-24 lg:pb-24 lg:pt-28">
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
 
-        <div class="bs-reveal-left">
-          <div class="relative overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-            <div class="absolute left-0 top-0 z-10 h-14 w-14 border-r border-b backdrop-blur-sm" style="border-color:var(--bs-img-corner-border); background:var(--bs-img-corner-bg)"></div>
-            <img
-              src="<?php echo esc_url($team_image); ?>"
-              alt="Professional residential cleaning team in San Diego"
-              class="bs-parallax-soft h-[420px] w-full object-cover md:h-[620px]"
-            >
-            <div class="absolute inset-x-0 bottom-0 h-44" style="background:var(--bs-img-fade-b)"></div>
-            <div class="bs-image-badge absolute bottom-5 left-5 px-4 py-3">
-              <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-img-badge-label)]">Trusted Since</p>
-              <p class="mt-1 text-lg font-extrabold text-white">2009</p>
-            </div>
+      <!-- LEFT IMAGE + LAST TWO PARAGRAPHS -->
+      <div class="bs-reveal-left">
+        <div class="relative overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
+          <div
+            class="absolute left-0 top-0 z-10 h-14 w-14 border-r border-b backdrop-blur-sm"
+            style="border-color:var(--bs-img-corner-border); background:var(--bs-img-corner-bg)"
+          ></div>
+
+          <img
+            src="<?php echo esc_url($team_image); ?>"
+            alt="Professional residential cleaning team in San Diego"
+            class="bs-parallax-soft h-[420px] w-full object-cover md:h-[560px] lg:h-[590px]"
+          >
+
+          <div
+            class="absolute inset-x-0 bottom-0 h-44"
+            style="background:var(--bs-img-fade-b)"
+          ></div>
+
+          <div class="bs-image-badge absolute bottom-5 left-5 px-4 py-3">
+            <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-img-badge-label)]">
+              Trusted Since
+            </p>
+            <p class="mt-1 text-lg font-extrabold text-white">2009</p>
           </div>
         </div>
 
-        <div class="bs-reveal-right">
-          <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">Our Story</p>
-          <h2 class="mt-4 max-w-[15ch] text-3xl font-semibold leading-[1.02] tracking-[-0.045em] text-[var(--bs-primary)] md:text-5xl">
-            A trusted house cleaning company in San Diego built on care and consistency
-          </h2>
+        <?php
+          $paragraph_count = count($about_paragraphs);
+          $second_last_paragraph_index = $paragraph_count - 2;
+          $last_paragraph_index = $paragraph_count - 1;
+          $left_paragraph_indexes = [$second_last_paragraph_index, $last_paragraph_index];
+        ?>
 
-          <div class="mt-7 space-y-5 text-base leading-8 text-[var(--bs-text-soft)]">
-            <?php foreach ($about_paragraphs as $paragraph) : ?>
-              <p><?php echo esc_html($paragraph); ?></p>
+        <?php if ($paragraph_count > 0) : ?>
+          <div class="mt-7 max-w-2xl space-y-5 text-[15.5px] leading-8 text-[var(--bs-text-soft)]">
+            <?php foreach ($left_paragraph_indexes as $left_index) : ?>
+              <?php if (isset($about_paragraphs[$left_index]) && !empty($about_paragraphs[$left_index])) : ?>
+                <p>
+                  <?php echo esc_html($about_paragraphs[$left_index]); ?>
+                </p>
+              <?php endif; ?>
             <?php endforeach; ?>
           </div>
-        </div>
-
+        <?php endif; ?>
       </div>
-    </div>
-  </section>
 
+      <!-- RIGHT CONTENT -->
+      <div class="bs-reveal-right">
+        <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">
+          Our Story
+        </p>
+
+        <h2 class="mt-4 max-w-[15ch] text-3xl font-semibold leading-[1.02] tracking-[-0.045em] text-[var(--bs-primary)] md:text-5xl">
+          A trusted house cleaning company in San Diego built on care and consistency
+        </h2>
+
+        <div class="mt-8 max-w-2xl space-y-5 text-[15.5px] leading-8 text-[var(--bs-text-soft)]">
+          <?php foreach ($about_paragraphs as $index => $paragraph) : ?>
+
+            <?php if (in_array($index, $left_paragraph_indexes, true)) : ?>
+              <?php continue; ?>
+            <?php endif; ?>
+
+            <p>
+              <?php echo esc_html($paragraph); ?>
+            </p>
+
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- HIGHLIGHTS -->
   <section class="relative overflow-hidden border-y border-[var(--bs-border)] bg-white py-20 lg:py-24">
     <div class="absolute right-0 top-0 h-full w-full" style="background:var(--bs-services-glow)"></div>

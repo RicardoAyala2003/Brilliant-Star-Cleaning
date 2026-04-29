@@ -145,7 +145,7 @@ get_header(); ?>
 
           <div class="mt-7 space-y-5 text-base leading-8 text-[var(--bs-text-soft)]">
             <p>
-              Sometimes your home needs more than everyday upkeep. Our deep cleaning service is designed for the moments when you want a true reset whether it’s been a while since your last professional cleaning, you’re preparing for guests, or you simply want every detail addressed.
+              Sometimes your home needs more than everyday upkeep. Our deep cleaning service is designed for the moments when you want a true reset whether it’s been a while since your last professional cleaning, you’re preparing for guests, or you simply want every detail addressed. In fact, we recommend that all first-time clients start with a deep clean. It gives us a thorough baseline for your home and sets the stage for a great recurring cleaning experience.
             </p>
             <p>
               We go beyond the essentials and focus on the spots that often get overlooked: inside the refrigerator and oven, window seals and sills, ceiling fans within safe reach, and small patios or balconies.

@@ -16,19 +16,20 @@ get_header(); ?>
 
     $services = [
       [
-        'eyebrow' => 'Residential Cleaning in San Diego',
-        'title'   => 'Regular Cleaning',
-        'copy'    => 'Keep your home consistently clean, week after week. We handle the dusting, vacuuming, mopping, kitchen, and bathrooms — on your schedule.',
-        'link'    => '/services/residential-cleaning/',
-        'tone'    => 'var(--bs-accent)',
-      ],
-      [
         'eyebrow' => 'Deep Cleaning in San Diego',
         'title'   => 'Deep Cleaning',
         'copy'    => 'A thorough clean that goes beyond the surface. Perfect for a fresh start or a seasonal reset. Includes areas that regular cleaning doesn’t cover.',
         'link'    => '/services/deep-cleaning/',
         'tone'    => 'var(--bs-primary)',
       ],
+      [
+        'eyebrow' => 'Residential Cleaning in San Diego',
+        'title'   => 'Regular Cleaning',
+        'copy'    => 'Keep your home consistently clean, week after week. We handle the dusting, vacuuming, mopping, kitchen, and bathrooms — on your schedule.',
+        'link'    => '/services/residential-cleaning/',
+        'tone'    => 'var(--bs-accent)',
+      ],
+
       [
         'eyebrow' => 'Move-Out Cleaning in San Diego',
         'title'   => 'Move-Out Cleaning',

@@ -104,8 +104,8 @@
                             </button>
 
                             <div class="bs-dropdown bs-dropdown--services">
-                                <a href="<?php echo esc_url(home_url('/services/residential-cleaning/')); ?>">Regular Cleaning</a>
                                 <a href="<?php echo esc_url(home_url('/services/deep-cleaning/')); ?>">Deep Cleaning</a>
+                                <a href="<?php echo esc_url(home_url('/services/residential-cleaning/')); ?>">Regular Cleaning</a>
                                 <a href="<?php echo esc_url(home_url('/services/move-out-cleaning/')); ?>">Move-Out Cleaning</a>
                                 <a href="<?php echo esc_url(home_url('/services/move-in-cleaning/')); ?>">Move-In Cleaning</a>
                                 <a href="<?php echo esc_url(home_url('/services/post-construction-cleaning/')); ?>">Post-Construction</a>

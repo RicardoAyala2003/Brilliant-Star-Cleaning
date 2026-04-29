@@ -60,70 +60,86 @@ get_header(); ?>
     ];
   ?>
 
-  <!-- HERO -->
-  <section class="relative isolate overflow-hidden border-b border-[var(--bs-border)] bg-[var(--bs-primary)] text-white">
-    <div class="absolute inset-0">
-      <img
-        src="<?php echo esc_url($hero_image); ?>"
-        alt="Bright clean residential home in San Diego"
-        class="bs-service-hero-image h-full w-full object-cover"
-      >
+ <!-- HERO -->
+<section class="relative isolate overflow-hidden border-b border-[var(--bs-border)] bg-[var(--bs-primary)] text-white">
+  <div class="absolute inset-0">
+    <img
+      src="<?php echo esc_url($hero_image); ?>"
+      alt="Bright clean residential home in San Diego"
+      class="bs-service-hero-image h-full w-full object-cover"
+    >
 
-      <div class="absolute inset-0" style="background:var(--bs-hero-overlay-main)"></div>
-      <div class="absolute inset-y-0 left-0 w-full lg:w-[62%]" style="background:var(--bs-hero-overlay-left)"></div>
+    <div class="absolute inset-0" style="background:var(--bs-hero-overlay-main)"></div>
+    <div class="absolute inset-y-0 left-0 w-full lg:w-[62%]" style="background:var(--bs-hero-overlay-left)"></div>
 
-      <div class="absolute left-[-100px] top-[-80px] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-accent)"></div>
-      <div class="absolute right-[-90px] top-[10%] h-80 w-80 rounded-full blur-3xl" style="background:var(--bs-hero-blob-gold)"></div>
-      <div class="absolute bottom-[-120px] left-[14%] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-soft)"></div>
+    <div class="absolute left-[-100px] top-[-80px] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-accent)"></div>
+    <div class="absolute right-[-90px] top-[10%] h-80 w-80 rounded-full blur-3xl" style="background:var(--bs-hero-blob-gold)"></div>
+    <div class="absolute bottom-[-120px] left-[14%] h-72 w-72 rounded-full blur-3xl" style="background:var(--bs-hero-blob-soft)"></div>
 
-      <div class="absolute inset-x-0 top-0 h-px" style="background:var(--bs-hero-line-h)"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-28" style="background:var(--bs-hero-fade-b)"></div>
+    <div class="absolute inset-x-0 top-0 h-px" style="background:var(--bs-hero-line-h)"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-28" style="background:var(--bs-hero-fade-b)"></div>
 
-      <div class="absolute right-[8%] top-[12%] hidden h-56 w-56 rotate-[18deg] lg:block" style="border:1px solid var(--bs-hero-frame-strong)"></div>
-    </div>
+    <div class="absolute right-[8%] top-[12%] hidden h-56 w-56 rotate-[18deg] lg:block" style="border:1px solid var(--bs-hero-frame-strong)"></div>
+  </div>
 
-    <div class="relative z-10 mx-auto max-w-7xl px-4 py-16 lg:py-24">
-      <div class="max-w-4xl">
-        <p class="bs-reveal-up bs-hero-kicker inline-flex px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.24em] backdrop-blur-sm">
-          Residential Cleaning Services
-        </p>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 py-16 lg:py-24">
+    <div class="max-w-4xl">
 
-        <h1 class="bs-reveal-up mt-6 max-w-[11ch] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
-          Reliable Residential Cleaning Services in San Diego
-        </h1>
+      <!-- NEW CUSTOMER NOTICE -->
+      <div class="bs-reveal-up bs-new-customer-callout mb-5">
+        <div class="flex items-start gap-4">
+          <span class="bs-new-customer-callout__icon" aria-hidden="true">✦</span>
 
-        <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-          A consistently clean home shouldn't come at the cost of your time and energy. Our residential cleaning service is designed for busy San Diego households that want to stay on top of it without the effort. Whether you prefer cleaning every week or every two weeks, we show up on time, work efficiently, and leave your home looking exactly how it should.
-        </p>
-
-        <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
-          <a href="#included" class="bs-btn bs-btn-primary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-            See What’s Included
-          </a>
-          <a href="/contact-us/" class="bs-btn bs-btn-outline-white inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
-            Request a Quote
-          </a>
+          <p class="text-[13px] font-semibold leading-6 text-[var(--bs-callout-text)] md:text-sm">
+            New to Brilliant Star? We recommend starting with a
+            <a href="/services/deep-cleaning/" class="bs-new-customer-callout__link">
+              Deep Cleaning
+            </a>
+            before setting up recurring appointments, so we can give your home the thorough reset it deserves from day one.
+          </p>
         </div>
       </div>
 
-      <div class="mt-12 grid gap-4 md:grid-cols-3">
-        <div class="bs-reveal-stagger bs-hero-strip-card">
-          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Experience</p>
-          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">15+ Years of Trusted Cleaning</p>
-        </div>
+      <p class="bs-reveal-up bs-hero-kicker inline-flex px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.24em] backdrop-blur-sm">
+        Residential Cleaning Services
+      </p>
 
-        <div class="bs-reveal-stagger bs-hero-strip-card">
-          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Professional Standards</p>
-          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Licensed, Insured, and Detail-Focused</p>
-        </div>
+      <h1 class="bs-reveal-up mt-6 max-w-[11ch] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
+        Reliable Residential Cleaning Services in San Diego
+      </h1>
 
-        <div class="bs-reveal-stagger bs-hero-strip-card">
-          <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Equipment</p>
-          <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Commercial-Grade Tools for Every Surface</p>
-        </div>
+      <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
+        A consistently clean home shouldn't come at the cost of your time and energy. Our residential cleaning service is designed for busy San Diego households that want to stay on top of it without the effort. Whether you prefer cleaning every week or every two weeks, we show up on time, work efficiently, and leave your home looking exactly how it should.
+      </p>
+
+      <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
+        <a href="#included" class="bs-btn bs-btn-primary inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
+          See What’s Included
+        </a>
+        <a href="/contact-us/" class="bs-btn bs-btn-outline-white inline-flex items-center justify-center px-7 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">
+          Request a Quote
+        </a>
       </div>
     </div>
-  </section>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      <div class="bs-reveal-stagger bs-hero-strip-card">
+        <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Experience</p>
+        <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">15+ Years of Trusted Cleaning</p>
+      </div>
+
+      <div class="bs-reveal-stagger bs-hero-strip-card">
+        <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Professional Standards</p>
+        <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Licensed, Insured, and Detail-Focused</p>
+      </div>
+
+      <div class="bs-reveal-stagger bs-hero-strip-card">
+        <p class="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--bs-hero-strip-label)]">Equipment</p>
+        <p class="mt-2 text-lg font-extrabold tracking-[-0.03em] text-white">Commercial-Grade Tools for Every Surface</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ABOUT SNAPSHOT -->
   <section class="bg-[var(--bs-bg)] py-16 lg:py-20">
@@ -447,6 +463,15 @@ get_header(); ?>
     --bs-nearby-frame-border:   rgba(24, 54, 74, 0.08);
     --bs-nearby-gold-frame-border: rgba(201, 161, 58, 0.18);
 
+--bs-callout-bg:              rgba(238, 247, 249, 0.94);
+--bs-callout-border:          rgba(154, 179, 199, 0.48);
+--bs-callout-text:            #18364a;
+--bs-callout-link:            #0f5f78;
+--bs-callout-link-hover:      #18364a;
+--bs-callout-icon-bg:         rgba(154, 179, 199, 0.20);
+--bs-callout-icon-border:     rgba(154, 179, 199, 0.38);
+--bs-callout-shadow:          0 18px 42px rgba(24, 54, 74, 0.16);
+
     --bs-shadow-card:               0 28px 70px rgba(24, 54, 74, 0.08);
     --bs-shadow-point:              0 12px 30px rgba(24, 54, 74, 0.04);
     --bs-shadow-btn-primary:        0 18px 38px rgba(201, 161, 58, 0.22);
@@ -554,6 +579,54 @@ get_header(); ?>
     box-shadow: var(--bs-hero-kicker-shadow);
   }
 
+.bs-new-customer-callout {
+  max-width: 39rem;
+  border: 1px solid var(--bs-callout-border);
+  background: var(--bs-callout-bg);
+  color: var(--bs-callout-text);
+  padding: 0.72rem 0.95rem;
+  box-shadow: var(--bs-callout-shadow);
+  backdrop-filter: blur(12px);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+}
+
+.bs-new-customer-callout__icon {
+  display: inline-flex;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 1.55rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bs-callout-icon-border);
+  background: var(--bs-callout-icon-bg);
+  color: var(--bs-callout-link);
+  font-size: 0.72rem;
+  line-height: 1;
+  margin-top: 0.22rem;
+}
+
+.bs-new-customer-callout__link {
+  color: var(--bs-callout-link);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 95, 120, 0.35);
+  text-underline-offset: 4px;
+  transition: color var(--bs-duration-fast) ease, text-decoration-color var(--bs-duration-fast) ease;
+}
+
+.bs-new-customer-callout__link:hover {
+  color: var(--bs-callout-link-hover);
+  text-decoration-color: var(--bs-gold);
+}
+
+  
   .bs-hero-strip-card {
     border: 1px solid var(--bs-hero-strip-border);
     background: var(--bs-hero-strip-bg);
@@ -770,13 +843,14 @@ get_header(); ?>
   @media (max-width: 768px) {
     .bs-service-page br { display: none; }
 
-    .bs-btn-primary,
-    .bs-btn-secondary,
-    .bs-btn-secondary-ghost,
-    .bs-btn-outline-white,
-    .bs-hero-strip-card {
-      clip-path: none;
-    }
+.bs-btn-primary,
+.bs-btn-secondary,
+.bs-btn-secondary-ghost,
+.bs-btn-outline-white,
+.bs-hero-strip-card,
+.bs-new-customer-callout {
+  clip-path: none;
+}
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -20,14 +20,14 @@ get_header(); ?>
 
     $services = [
       [
-        'title' => 'Regular Cleaning',
-        'copy'  => 'Keep your home consistently clean, week after week. We handle the dusting, vacuuming, mopping, kitchen, and bathrooms on your schedule.',
-        'link'  => '/services/residential-cleaning/',
-      ],
-      [
         'title' => 'Deep Cleaning',
         'copy'  => 'A thorough clean that goes beyond the surface. Perfect for a fresh start or a seasonal reset. Includes areas that regular cleaning doesn\'t cover.',
         'link'  => '/services/deep-cleaning/',
+      ],
+      [
+        'title' => 'Regular Cleaning',
+        'copy'  => 'Keep your home consistently clean, week after week. We handle the dusting, vacuuming, mopping, kitchen, and bathrooms on your schedule.',
+        'link'  => '/services/residential-cleaning/',
       ],
       [
         'title' => 'Move-Out Cleaning',
@@ -95,6 +95,14 @@ get_header(); ?>
       [
         'q' => 'Are you licensed and insured?',
         'a' => 'Yes. Brilliant Star Cleaning Services is fully licensed in San Diego and insured, so you can feel completely comfortable having us in your home.',
+      ],
+            [
+        'q' => 'What is your cancellation policy?',
+        'a' => 'We ask that all cancellations or reschedules be made at least 24 hours in advance. Cancellations with less than 24 hours notice are subject to a $50 cancellation fee.',
+      ],
+      [
+        'q' => 'Are there any limitations to what your team can clean?',
+        'a' => 'For the safety of our team, we do not clean areas that require working at heights, such as high vaulted ceilings or ceiling fans that cannot be safely reached from the floor or a standard step stool. We also do not move heavy furniture. If you have specific areas of concern, just let us know when booking and we will do our best to accommodate within these guidelines.',
       ],
     ];
   ?>
@@ -233,7 +241,7 @@ get_header(); ?>
             <p>Have allergies, a newborn, or specific preferences about cleaning products? Just tell us we adapt to your household and make it work for you.</p>
           </div>
           <div class="mt-8 flex flex-wrap items-center gap-4">
-            <a href="/about-us/" class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">Meet Our Team</a>
+            <a href="/about-us/" class="bs-btn bs-btn-secondary inline-flex items-center justify-center px-6 py-4 text-sm font-black uppercase tracking-[0.15em] text-white">About Our Team</a>
           </div>
         </div>
       </div>
