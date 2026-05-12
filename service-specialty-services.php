@@ -33,15 +33,15 @@ get_header(); ?>
       ],
       [
         'q' => 'How is my quote determined?',
-        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition — then give you a straightforward estimate. No surprises, ever.'
+        'a' => 'Every home is different, so we personalize every quote. We\'ll ask about your number of bedrooms and bathrooms, when your home was last professionally cleaned, and its overall condition  then give you a straightforward estimate. No surprises, ever.'
       ],
       [
         'q' => 'What are specialty services?',
-        'a' => 'Not every cleaning situation fits a standard package — and that\'s okay. We offer specialty cleaning services designed around your specific circumstances. Whatever you need, we\'ll do our best to accommodate you.'
+        'a' => 'Not every cleaning situation fits a standard package  and that\'s okay. We offer specialty cleaning services designed around your specific circumstances. Whatever you need, we\'ll do our best to accommodate you.'
       ],
       [
         'q' => 'Do you bring your own cleaning supplies?',
-        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type — hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
+        'a' => 'Yes. We arrive fully equipped with commercial-grade vacuums and professional cleaning products for every surface type  hardwood, tile, stone counters, and stainless steel. If you have allergies, a baby at home, or specific product preferences, just let us know and we\'ll accommodate you.'
       ],
     ];
 
@@ -85,11 +85,11 @@ get_header(); ?>
         </p>
 
         <h1 class="bs-reveal-up mt-6 max-w-[13ch] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl xl:text-7xl">
-          Specialty Cleaning Services in San Diego — Your Home, Your Needs
+          Specialty Cleaning Services in San Diego  Your Home, Your Needs
         </h1>
 
         <p class="bs-reveal-up mt-6 max-w-2xl text-base leading-8 text-[var(--bs-hero-text-soft)] md:text-lg">
-          Not every cleaning situation fits a standard package — and that&apos;s okay. We offer specialty cleaning services designed around your specific circumstances. Whatever you need, we&apos;ll do our best to accommodate you.
+          Not every cleaning situation fits a standard package  and that&apos;s okay. We offer specialty cleaning services designed around your specific circumstances. Whatever you need, we&apos;ll do our best to accommodate you.
         </p>
 
         <div class="bs-reveal-up mt-8 flex flex-col gap-4 sm:flex-row">
@@ -124,19 +124,8 @@ get_header(); ?>
   <!-- ABOUT SNAPSHOT -->
   <section class="bg-[var(--bs-bg)] py-16 lg:py-20">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-        <div class="bs-reveal-left">
-          <div class="relative overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-            <img
-              src="<?php echo esc_url($detail_image); ?>"
-              alt="Specialty cleaning service tailored to a San Diego home"
-              class="bs-parallax-soft h-[380px] w-full object-cover md:h-[520px]"
-            >
-            <div class="absolute inset-x-0 bottom-0 h-36" style="background:var(--bs-img-fade-b)"></div>
-          </div>
-        </div>
-
-        <div class="bs-reveal-right">
+      <div>
+        <div class="bs-reveal-up max-w-3xl mx-auto">
           <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">Flexible, Personalized, Practical</p>
           <h2 class="mt-4 max-w-[14ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
             Cleaning support for situations that don’t fit the usual mold
@@ -150,7 +139,7 @@ get_header(); ?>
               Whatever you need, we&apos;ll do our best to accommodate you. We start with a conversation, learn more about your situation, and then let you know what we can do.
             </p>
             <p>
-              From there, we put together a quote that makes sense for the scope of work requested — clear, personalized, and practical.
+              From there, we put together a quote that makes sense for the scope of work requested  clear, personalized, and practical.
             </p>
           </div>
 
@@ -326,7 +315,7 @@ get_header(); ?>
               We proudly provide professional house cleaning services across San Diego and the surrounding communities, including Hillcrest, North Park, South Park, Mission Hills, Del Mar, Mira Mesa, Kearny Mesa, Mission Valley, Mission Beach, Ocean Beach, University Heights, and Otay Mesa.
             </p>
             <p>
-              Don’t see your neighborhood listed? Reach out — we may still be able to help.
+              Don’t see your neighborhood listed? Reach out  we may still be able to help.
             </p>
           </div>
 

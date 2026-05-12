@@ -193,24 +193,10 @@ get_header(); ?>
           </div>
         </div>
 
-        <?php
+<?php
           $paragraph_count = count($about_paragraphs);
-          $second_last_paragraph_index = $paragraph_count - 2;
-          $last_paragraph_index = $paragraph_count - 1;
-          $left_paragraph_indexes = [$second_last_paragraph_index, $last_paragraph_index];
+          $left_paragraph_indexes = [];
         ?>
-
-        <?php if ($paragraph_count > 0) : ?>
-          <div class="mt-7 max-w-2xl space-y-5 text-[15.5px] leading-8 text-[var(--bs-text-soft)]">
-            <?php foreach ($left_paragraph_indexes as $left_index) : ?>
-              <?php if (isset($about_paragraphs[$left_index]) && !empty($about_paragraphs[$left_index])) : ?>
-                <p>
-                  <?php echo esc_html($about_paragraphs[$left_index]); ?>
-                </p>
-              <?php endif; ?>
-            <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
       </div>
 
       <!-- RIGHT CONTENT -->

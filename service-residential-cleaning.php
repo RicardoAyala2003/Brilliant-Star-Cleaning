@@ -144,19 +144,8 @@ get_header(); ?>
   <!-- ABOUT SNAPSHOT -->
   <section class="bg-[var(--bs-bg)] py-16 lg:py-20">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-        <div class="bs-reveal-left">
-          <div class="relative overflow-hidden border border-[var(--bs-border)] bg-white shadow-[var(--bs-shadow-card)]">
-            <img
-              src="<?php echo esc_url($detail_image); ?>"
-              alt="Professional recurring residential cleaning in San Diego"
-              class="bs-parallax-soft h-[380px] w-full object-cover md:h-[520px]"
-            >
-            <div class="absolute inset-x-0 bottom-0 h-36" style="background:var(--bs-img-fade-b)"></div>
-          </div>
-        </div>
-
-        <div class="bs-reveal-right">
+      <div>
+        <div class="bs-reveal-up max-w-3xl mx-auto">
           <p class="text-xs font-black uppercase tracking-[0.2em] text-[var(--bs-accent)]">Care, Expertise, and Detail</p>
           <h2 class="mt-4 max-w-[14ch] text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--bs-primary)] md:text-5xl">
             A cleaning company built on care, expertise, and attention to detail
