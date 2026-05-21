@@ -255,6 +255,36 @@ h1, h2, h3, h4, h5, h6,
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
+.bs-topbar__geo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 34px;
+  padding-inline: 0.95rem;
+  border: 1px solid rgba(154, 179, 199, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition:
+    transform var(--bs-duration-fast) ease,
+    background-color var(--bs-duration-fast) ease,
+    border-color var(--bs-duration-fast) ease,
+    color var(--bs-duration-fast) ease;
+}
+
+.bs-topbar__geo:hover {
+  transform: translateY(-2px);
+  background: rgba(154, 179, 199, 0.18);
+  border-color: rgba(154, 179, 199, 0.44);
+  color: white;
+}
+
 .bs-yelp-btn {
   display: inline-flex;
   align-items: center;

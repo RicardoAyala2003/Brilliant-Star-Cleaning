@@ -38,6 +38,14 @@
                 <!-- CENTER -->
                 <div class="bs-topbar__center">
                     <span class="bs-topbar__pill">Licensed &amp; Insured</span>
+                    <a href="https://www.google.com/maps?q=San%20Diego,%20CA&z=10" target="_blank" rel="noopener noreferrer" class="bs-topbar__geo" aria-label="Serving San Diego, CA">
+                        <span class="bs-topbar__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2a7 7 0 0 1 7 7c0 4.25-5.6 10.6-6.74 11.85a.34.34 0 0 1-.52 0C10.6 19.6 5 13.25 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/>
+                            </svg>
+                        </span>
+                        <span>Serving San Diego, CA</span>
+                    </a>
                 </div>
 
                 <!-- RIGHT -->
