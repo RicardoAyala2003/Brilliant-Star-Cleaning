@@ -442,3 +442,38 @@
   border-color: rgba(79,180,231,0.26);
   box-shadow: 0 10px 24px rgba(11, 37, 56, 0.06);
 }
+
+.bs-footer__socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.bs-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--bs-border);
+  background: rgba(255,255,255,0.06);
+  color: var(--bs-primary);
+  text-decoration: none;
+  transition:
+    transform 0.24s ease,
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease;
+}
+
+.bs-footer__social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bs-footer__social-link:hover {
+  transform: translateY(-2px);
+  background: var(--bs-surface);
+  border-color: rgba(154, 179, 199, 0.30);
+  color: var(--bs-accent);
+}
